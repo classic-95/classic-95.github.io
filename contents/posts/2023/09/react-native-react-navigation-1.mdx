@@ -1,0 +1,318 @@
+---
+author: flash
+title: "[react-native] react-navigation으로 화면 전환 시작하기"
+thumbnail: "../../../images/logos/react-native.png"
+created_at: 2023-09-04 13:13:42
+description: "react-navigation 오픈 소스를 사용하여 react-native에서의 화면 전환에 대해 알아보자."
+---
+
+import img1 from '../../../images/2023/09/navigation-1-0.webp';
+import img2 from '../../../images/2023/09/navigation-1-1.webp';
+
+오늘은 react-navigation 오픈 소스를 사용하여 react-native에서의 화면 전환에 대해 알아보도록 해요.
+
+우선 [공식문서](https://reactnavigation.org/docs/getting-started/)를 켜놓으시면 더 편하게 따라오실 수 있어요. 블로그 글도 간단하게 한글로 정리되서 좋지만 항상 공식문서를 읽는 습관을 들이는게 좋아요.
+
+---
+
+## 1. 프로젝트 만들기
+
+우선 프로젝트를 한 번 만들어보도록 하죠. 
+
+mac이면 터미널 window면 cmd를 켜서 react-native 프로젝트를 만들어주세요.
+
+저는 navigation이라는 이름의 react-native 프로젝트를 한 번 만들어볼게요. 
+
+```bash
+# npx react-native init {프로젝트명}
+npx react-native init navigation
+```
+
+ ## 2. react-navigation 설치
+
+ 공식문서에서 말하는대로 dependencies와 함께 react-navigation을 설치해볼게요.
+
+ ```bash
+ # cd {생성한 프로젝트명}
+ cd navigation
+
+ # react-navigation/native와 react-navigation/stack 
+ # react-navigation/native의 dependencies인 react-native-screens, react-native-safe-area-context
+ # react-navigation/stack의 dependency인 react-native-gesture-handler 를 함께 설치
+ yarn add @react-navigation/native @react-navigation/stack react-native-screens react-native-safe-area-context react-native-gesture-handler
+ ```
+
+ ### 2-1. ios 추가 작업
+
+ ios는 방금 설치한 모듈들을 연결하기 위해 pod install을 진행해줘야 해요.
+
+ ```bash
+ cd ios
+ pod install
+ cd ..
+ ```
+
+### 2-2. android 추가 작업
+
+android의 경우 \"{"android/app/src/main/java/<프로젝트명>/MainActivity.java"}\" 에서 아래의 코드를 추가해야해요.
+
+아래 코드를 추가하지 않으면 앱을 백그라운드에서 포그라운드로 전환할 때 비정상 종료가 발생하는 경우가 생겨요.
+
+```java
+// android/app/src/main/java/<프로젝트명>/MainActivity.java
+
+public class MainActivity extends ReactActivity {
+  // ...
+  @Override
+  protected void onCreate(Bundle savedInstanceState) {
+    super.onCreate(null);
+  }
+  // ...
+}
+```
+
+### 2-3. ios, android 공통 작업
+
+@react-navigation/stack의 dependency인 react-native-gesture-handler를 index.js에서 import해줘요.
+
+그렇지 않으면 빌드 중 오류가 발생하거나 화면 전환에 문제가 생길 수 있어요.
+
+```js 
+// index.js
+
+// ...
+- import 'react-native-gesture-handler';
+// ...
+```
+
+## 3. 테스트 화면 작성
+
+테스트 화면은 아래와 같이 구성할 예정이에요.
+
+기존에 루트 디렉토리에 있던 App.tsx를 src/screens 폴더를 만든 후에 옮겨주세요. 
+
+마찬 가지로 src/screens 폴더 안에 Navigator.tsx, Screen1.tsx와 Screen2.tsx 파일을 만들어주세요.
+
+그리고 Navigation의 type을 선언하기 위한 Navigation.ts 파일을 types 폴더를 만든 후에 만들어주세요.
+
+```
+📦src
+ ┣ 📂screens
+ ┃ ┣ 📜App.tsx
+ ┃ ┣ 📜Navigator.tsx
+ ┃ ┣ 📜Screen1.tsx
+ ┃ ┗ 📜Screen2.tsx
+ ┗ 📂types
+ ┃ ┗ 📜Navigation.ts
+```
+
+### 3-1. Navigation.ts 타입 코드 작성
+
+다른 코드들을 작성하기에 앞서 Naivgation에 어떤 스크린들이 존재하는지 타입을 지정해요.
+
+우리는 Screen1과 Screen2만 존재하기 때문에 아래와 같이 타입을 설정해요.
+
+Screen1: 과 Screen2: 의 undefined 값은 각 스크린들을 화면에 띄울 때 필요한 타입이 존재하지 않는다는 뜻이에요.
+
+이에 관해서는 이어지는 포스팅에서 더 설명해보도록 하고 지금은 넘어가도록 할게요.
+
+```ts
+// src/types/Navigation.ts
+
+export type NaviParamList = {
+	Screen1: undefined;
+	Screen2: undefined;
+};
+```
+
+### 3-2. Screen1.tsx 코드 작성
+
+크게 어려운 내용은 없지만 설명을 덧붙이자면 우리가 위의 [3-1](/posts/2023/09/react-native-react-navigation-1/#3-1-navigationts-타입-코드-작성)에서 선언해놨던 NaviParamList와 현재 스크린 명을 명시해서 NavigationProp을 선언해요.
+
+그 후 useNavigation 훅을 통해 선언해놓은 NavigationProp 타입을 사용하는 navigation 변수를 생성해요.
+
+Screen-2로 이동 버튼에 onPress event를 붙여서 Screen2로 이동하는 함수를 실행시켜요.
+
+<img src={img1} style={{width: 250, margin: "auto", display: "block", marginBottom: 20}} alt="react-native navigation screen1" />
+
+```tsx
+// src/screens/Screen1.tsx
+
+import { StackNavigationProp } from '@react-navigation/stack';
+import React from 'react';
+import { StyleSheet, Text, TouchableOpacity, View } from 'react-native';
+import { NaviParamList } from '../types/Navigation';
+import { useNavigation } from '@react-navigation/native';
+
+const styles = StyleSheet.create({
+	container: {
+		flex: 1,
+		alignItems: 'center',
+		justifyContent: 'center',
+	},
+	button: {
+		padding: 10,
+		backgroundColor: 'black',
+	},
+	buttonLabel: {
+		color: 'white',
+	},
+});
+
+type NavigationProp = StackNavigationProp<NaviParamList, 'Screen1'>;
+
+export default function Screen1() {
+	const navigation = useNavigation<NavigationProp>();
+
+	return (
+		<View style={styles.container}>
+			<TouchableOpacity style={styles.button} onPress={() => navigation.navigate('Screen2')}>
+				<Text style={styles.buttonLabel}>Screen-2로 이동</Text>
+			</TouchableOpacity>
+		</View>
+	);
+}
+
+```
+
+### 3-2. Screen2.tsx 코드 작성
+
+위의 [Screen1](/posts/2023/09/react-native-react-navigation-1/#3-2-screen1tsx-코드-작성)과 동일해요.
+
+<img src={img2} style={{width: 250, margin: "auto", display: "block", marginBottom: 20}} alt="react-native navigation screen2"/>
+
+```tsx
+// src/screens/Screen2.tsx
+
+import { StackNavigationProp } from '@react-navigation/stack';
+import React from 'react';
+import { StyleSheet, Text, TouchableOpacity, View } from 'react-native';
+import { NaviParamList } from '../types/Navigation';
+import { useNavigation } from '@react-navigation/native';
+
+const styles = StyleSheet.create({
+	container: {
+		flex: 1,
+		alignItems: 'center',
+		justifyContent: 'center',
+	},
+	button: {
+		padding: 10,
+		backgroundColor: 'black',
+	},
+	buttonLabel: {
+		color: 'white',
+	},
+});
+
+type NavigationProp = StackNavigationProp<NaviParamList, 'Screen2'>;
+
+export default function Screen2() {
+	const navigation = useNavigation<NavigationProp>();
+
+	return (
+		<View style={styles.container}>
+			<TouchableOpacity style={styles.button} onPress={() => navigation.navigate('Screen1')}>
+				<Text style={styles.buttonLabel}>Screen-1로 이동</Text>
+			</TouchableOpacity>
+		</View>
+	);
+}
+```
+
+### 3-4. Navigator.tsx 코드 작성
+
+이제 위에서 만든 Screen1과 Screen2를 연결할 네이게이터를 만들어야겠죠? 
+
+우선 createStackNavigator를 사용해서 Stack 객체를 만들어줘요.
+
+그 이후 아래의 코드와 같이 포함시키고 싶은 스크린들을 넣어줘요.
+
+```tsx
+// src/screens/Navigator.tsx
+
+import React from 'react';
+import { createStackNavigator } from '@react-navigation/stack';
+import { NaviParamList } from '../types/Navigation';
+import Screen1 from './Screen1';
+import Screen2 from './Screen2';
+
+const Stack = createStackNavigator<NaviParamList>();
+
+export default function Navigator() {
+	return (
+		<Stack.Navigator>
+			<Stack.Screen name="Screen1" component={Screen1} />
+			<Stack.Screen name="Screen2" component={Screen2} />
+		</Stack.Navigator>
+	);
+}
+```
+
+### 3-5. App.tsx 코드 수정
+
+이제 App.tsx의 기본 코드들을 모두 지운 후에 아래 코드와 같이 NavigationContainer로 위에서 만들어준 Navigator를 감싸줘요.
+
+```tsx
+// src/screens/App.tsx
+
+import { NavigationContainer } from '@react-navigation/native';
+import React from 'react';
+import Navigator from './Navigator';
+
+export default function App() {
+	return (
+		<NavigationContainer>
+			<Navigator />
+		</NavigationContainer>
+	);
+}
+```
+
+### 3-6. index.js 코드 수정
+
+마지막으로 index.js의 App.tsx import 경로를 수정해주면 끝이에요!
+
+```diff
+// ...
+
+- import App from './App';
++ import App from './src/screens/App';
+
+// ...
+```
+
+## 4. 실행
+
+이제 위에서 작성한 코드들이 잘 동작하는지 확인해요.
+
+아마 잘 작동할텐데요. 
+
+react-native 0.7 버전 이후로 새로 만든 프로젝트가 실행 중 오류가 발생하는 경우가 있어요.
+
+Unable to boot device in current state: Booted 라는 문구가 뜨면서 말이죠.
+
+이런 경우 해결은 [이 포스팅](/posts/2023/09/react-native-unable-to-boot-device)을 확인해주세요.
+
+```bash
+# ios test
+yarn ios
+
+# android test
+yarn android
+```
+
+---
+
+## 전체 코드
+
+[https://github.com/flaassh/react-navigation-practice/tree/main/navigation-1](https://github.com/flaassh/react-navigation-practice/tree/main/navigation-1)
+
+---
+
+## 정리하며
+
+오늘은 react-navigation을 이용하여 화면을 전환하는 방법을 간단한 코드를 작성해서 알아봤어요.
+
+다음 포스팅에서는 react-navigation의 navigate, push, replace 등의 화면 전환 함수들을 어떤 상황에
+어떻게 사용해야 하는지에 대해 알아보도록 해요.
