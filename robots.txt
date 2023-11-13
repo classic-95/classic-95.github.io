@@ -1,0 +1,6 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://classic-95.com/sitemap-index.xml
+
+#DaumWebMasterTool:c082d6758e1eadd1fd20599588ea509d728e07a4e9ecd1a4932980076a55fa3f:W51x1kzjcOc32TxrFgt3yQ==
