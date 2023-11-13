@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Flash의 블로그]]></title><description><![CDATA[누구나 쉽게 따라할 수 있는, 남녀노소 모두를 위한 개발 블로그]]></description><link>https://classic-95.com?utm_source=blog-feed&amp;utm_medium=feed&amp;utm_campaign=feed</link><generator>GatsbyJS</generator><lastBuildDate>Mon, 13 Nov 2023 12:15:12 GMT</lastBuildDate><item><title><![CDATA[[gatsby] mdx 기반 블로그 만들기-1]]></title><description><![CDATA[markdown, md 또는 mdx 기반의 블로그를 만들 때 가장 많은 선택을 받는 프레임워크들은 크게 세 가지가 있죠. 바로 jekyll, Hugo, Gatsby인데요.
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Classic95의 블로그]]></title><description><![CDATA[누구나 쉽게 따라할 수 있는, 남녀노소 모두를 위한 개발 블로그]]></description><link>https://classic-95.com?utm_source=blog-feed&amp;utm_medium=feed&amp;utm_campaign=feed</link><generator>GatsbyJS</generator><lastBuildDate>Mon, 13 Nov 2023 12:28:43 GMT</lastBuildDate><item><title><![CDATA[[gatsby] mdx 기반 블로그 만들기-1]]></title><description><![CDATA[markdown, md 또는 mdx 기반의 블로그를 만들 때 가장 많은 선택을 받는 프레임워크들은 크게 세 가지가 있죠. 바로 jekyll, Hugo, Gatsby인데요.
 
 이 중 오늘은 Gatsby를 사용해서 블로그를 만드는 방법에 대해 알아보도록…]]></description><link>https://classic-95.com/posts/2023/09/gatsby-mdx-blog-1/</link><guid isPermaLink="false">https://classic-95.com/posts/2023/09/gatsby-mdx-blog-1/</guid><pubDate>Fri, 08 Sep 2023 13:00:00 GMT</pubDate><content:encoded>
 markdown, md 또는 mdx 기반의 블로그를 만들 때 가장 많은 선택을 받는 프레임워크들은 크게 세 가지가 있죠.
@@ -102,14 +102,14 @@ gatsby new
 
 ```bash
 What would you like to call your site?
-✔ · Flash의 블로그
+✔ · Classic95의 블로그
 ```
 
 원하시는 프로젝트명을 설정해주세요.
 
 ```bash
 What would you like to name the folder where your site will be created?
-✔ {현재 폴더명}/ flash
+✔ {현재 폴더명}/ Classic95
 ```
 
 js와 ts 중에 선택해주세요.
@@ -189,7 +189,7 @@ Content Management System을 선택하는 부분인데 이 포스팅의 마지�
 ```bash
 Thanks! Here&apos;s what we&apos;ll now do:
 
-    🛠  Create a new Gatsby site in the folder flash
+    🛠  Create a new Gatsby site in the folder Classic95
     🎨 Get you set up to use styled-components for styling your site
     🔌 Install gatsby-plugin-image, gatsby-plugin-sitemap,
 gatsby-plugin-manifest, gatsby-plugin-mdx
