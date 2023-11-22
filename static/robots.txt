@@ -3,4 +3,4 @@ Allow: /
 
 Sitemap: https://classic-95.com/sitemap-index.xml
 
-#DaumWebMasterTool:c082d6758e1eadd1fd20599588ea509d728e07a4e9ecd1a4932980076a55fa3f:W51x1kzjcOc32TxrFgt3yQ==
+#DaumWebMasterTool:d559267b37084934d61145ef68b99ccc970177c592456b32019a915984c351e6:slZ/nUpbzdDq+YnBGfNB7w==

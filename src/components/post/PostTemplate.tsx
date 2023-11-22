@@ -1,16 +1,16 @@
 import React from "react";
-import styled from "styled-components";
 import { HeadProps, PageProps, graphql } from "gatsby";
+import styled from "styled-components";
 import { MDXProvider } from "@mdx-js/react";
 import { MDXComponents } from "@mdx-js/react/lib";
-import CommonPageContainer from "../components/common/CommonPageContainer";
-import CommonHeader from "../components/header/CommonHeader";
-import palette from "../libs/styles/palette";
-import media from "../libs/styles/media";
-import Utterances from "../components/common/Utterances";
-import CodeBlock from "../components/common/CodeBlock";
-import SEO from "../components/common/SEO";
-import dateFormatter from "../libs/formatter";
+import dateFormatter from "../../libs/formatter";
+import media from "../../libs/styles/media";
+import palette from "../../libs/styles/palette";
+import CodeBlock from "../common/CodeBlock";
+import CommonPageContainer from "../common/CommonPageContainer";
+import SEO from "../common/SEO";
+import Utterances from "../common/Utterances";
+import CommonHeader from "../header/CommonHeader";
 
 const BodyContainer = styled.div`
 	width: 100%;
@@ -33,12 +33,12 @@ const ContentContainer = styled.div`
 	}
 `;
 
-const CategoryLabel = styled.span`
-	color: black;
-	font-size: 0.875em;
-	font-weight: 600;
-	margin-bottom: 8px;
-`;
+// const CategoryLabel = styled.span`
+// 	color: black;
+// 	font-size: 0.875em;
+// 	font-weight: 600;
+// 	margin-bottom: 8px;
+// `;
 
 const TitleLabel = styled.h1`
 	font-size: 1.5em;
@@ -49,7 +49,7 @@ const TitleLabel = styled.h1`
 
 const DateContainer = styled.div`
 	margin-bottom: 12px;
-	p {
+	time {
 		color: ${palette.gray[6]};
 		font-size: 0.8em;
 	}
@@ -158,20 +158,45 @@ const components: MDXComponents = {
 	code: CodeBlock,
 };
 
-export default function PostTemplate({ data, children }: PageProps<any>) {
+type QueryType = {
+	mdx: {
+		fields: {
+			slug: string;
+		};
+		frontmatter: {
+			title: string;
+			description: string;
+			created_at: string;
+			updated_at: string;
+			thumbnail: {
+				childImageSharp: {
+					fixed: {
+						src: string;
+					};
+				};
+			};
+		};
+	};
+};
+
+export default function PostTemplate({ data, children }: PageProps<QueryType>) {
 	return (
 		<CommonPageContainer>
 			<CommonHeader />
 			<BodyContainer>
 				<ContentContainer>
-					{data.mdx.frontmatter.category !== undefined && (
+					{/* {data.mdx.frontmatter.category !== undefined && (
 						<CategoryLabel>{data.mdx.frontmatter.category}</CategoryLabel>
-					)}
+					)} */}
 					<TitleLabel>{data.mdx.frontmatter.title}</TitleLabel>
 					<DateContainer>
-						<p>게시: {dateFormatter(data.mdx.frontmatter.created_at)}</p>
+						<time dateTime={data.mdx.frontmatter.created_at}>
+							게시: {dateFormatter(data.mdx.frontmatter.created_at)}
+						</time>
 						{data.mdx.frontmatter.updated_at && (
-							<p>수정: {dateFormatter(data.mdx.frontmatter.updated_at)}</p>
+							<time dateTime={data.mdx.frontmatter.updated_at}>
+								수정: {dateFormatter(data.mdx.frontmatter.updated_at)}
+							</time>
 						)}
 					</DateContainer>
 					<MdxContainer>
@@ -186,9 +211,20 @@ export default function PostTemplate({ data, children }: PageProps<any>) {
 	);
 }
 
+export const Head = ({ data }: HeadProps<QueryType>) => (
+	<SEO
+		title={data.mdx.frontmatter.title}
+		description={data.mdx.frontmatter.description}
+		pathname={data.mdx.fields.slug}
+		image={data.mdx.frontmatter.thumbnail.childImageSharp.fixed.src}
+		created_at={data.mdx.frontmatter.created_at}
+		updated_at={data.mdx.frontmatter.updated_at}
+	/>
+);
+
 export const pageQuery = graphql`
-	query Mdx($fields__slug: String!) {
-		mdx(fields: { slug: { eq: $fields__slug } }) {
+	query ($id: String!) {
+		mdx(id: { eq: $id }) {
 			fields {
 				slug
 			}
@@ -208,14 +244,3 @@ export const pageQuery = graphql`
 		}
 	}
 `;
-
-export const Head = ({ data }: HeadProps<any>) => (
-	<SEO
-		title={data.mdx.frontmatter.title}
-		description={data.mdx.frontmatter.description}
-		pathname={data.mdx.fields.slug}
-		image={data.mdx.frontmatter.thumbnail.childImageSharp.fixed.src}
-		created_at={data.mdx.frontmatter.created_at}
-		updated_at={data.mdx.frontmatter.updated_at}
-	/>
-);

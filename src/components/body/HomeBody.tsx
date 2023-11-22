@@ -1,8 +1,9 @@
-import { graphql, useStaticQuery } from "gatsby";
 import React from "react";
+import { graphql, useStaticQuery } from "gatsby";
+import { IGatsbyImageData } from "gatsby-plugin-image";
 import styled from "styled-components";
-import HomePostItem from "./HomePostItem";
 import media from "../../libs/styles/media";
+import HomePostItem from "./HomePostItem";
 
 const Container = styled.div`
 	width: 100%;
@@ -24,22 +25,40 @@ const InnerContainer = styled.div`
 	}
 `;
 
+type QueryType = {
+	allMdx: {
+		nodes: {
+			fields: {
+				slug: string;
+			};
+			frontmatter: {
+				created_at: string;
+				description: string;
+				thumbnail: {
+					childImageSharp: {
+						gatsbyImageData: IGatsbyImageData;
+					};
+				};
+				title: string;
+			};
+		}[];
+	};
+};
+
 export default function HomeBody() {
-	const data = useStaticQuery(graphql`
+	const data = useStaticQuery<QueryType>(graphql`
 		query AllMdx {
 			allMdx(sort: { frontmatter: { created_at: DESC } }, limit: 100) {
 				nodes {
-					id
 					fields {
 						slug
 					}
 					frontmatter {
-						author
 						created_at
 						description
 						thumbnail {
 							childImageSharp {
-								gatsbyImageData(width: 160)
+								gatsbyImageData(width: 180, quality: 100)
 							}
 						}
 						title
@@ -52,8 +71,12 @@ export default function HomeBody() {
 	return (
 		<Container>
 			<InnerContainer>
-				{(data.allMdx.nodes as Array<any>).map((node) => (
-					<HomePostItem key={node.id} slug={node.fields.slug} post={node.frontmatter} />
+				{data.allMdx.nodes.map((node) => (
+					<HomePostItem
+						key={node.fields.slug}
+						slug={node.fields.slug}
+						post={node.frontmatter}
+					/>
 				))}
 			</InnerContainer>
 		</Container>

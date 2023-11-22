@@ -1,8 +1,8 @@
-import { Link } from "gatsby";
 import React from "react";
+import { Link } from "gatsby";
 import styled from "styled-components";
-import palette from "../../libs/styles/palette";
 import media from "../../libs/styles/media";
+import palette from "../../libs/styles/palette";
 
 const Container = styled.div`
 	width: 100%;

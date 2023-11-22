@@ -1,4 +1,5 @@
 import React from "react";
+import { graphql, useStaticQuery } from "gatsby";
 
 interface Props {
 	title?: string;
@@ -10,16 +11,37 @@ interface Props {
 	children?: any;
 }
 
-const TITLE = "Flash의 블로그";
-const DESCRIPTION = "누구나 쉽게 따라할 수 있는, 남녀노소 모두를 위한 개발 블로그";
-const URL = "https://classic-95.com";
+type QueryType = {
+	site: {
+		siteMetadata: {
+			author: string;
+			description: string;
+			siteUrl: string;
+			title: string;
+		};
+	};
+};
 
 const SEO = ({ title, description, pathname, created_at, updated_at, image, children }: Props) => {
+	const { site } = useStaticQuery<QueryType>(graphql`
+		{
+			site {
+				siteMetadata {
+					author
+					description
+					siteUrl
+					title
+				}
+			}
+		}
+	`);
+
 	const seo = {
-		title: title || TITLE,
-		description: description || DESCRIPTION,
-		image: `${URL}${image || "/icon.png"}`,
-		url: `${URL}${pathname || ""}`,
+		author: site.siteMetadata.author,
+		title: title ? `${title} | ${site.siteMetadata.title}` : site.siteMetadata.title,
+		description: description || site.siteMetadata.description,
+		image: `${site.siteMetadata.siteUrl}${image || "/icon.png"}`,
+		url: `${site.siteMetadata.siteUrl}${pathname || ""}`,
 	};
 
 	return (
@@ -46,7 +68,7 @@ const SEO = ({ title, description, pathname, created_at, updated_at, image, chil
 						"@type": "BlogPosting",
 						author: {
 							"@type": "Person",
-							name: "flash",
+							name: seo.author,
 							logo: null,
 						},
 						url: seo.url,
@@ -61,10 +83,18 @@ const SEO = ({ title, description, pathname, created_at, updated_at, image, chil
 			{/* 
 			<meta name="twitter:image" content={seo.image} />
 			 */}
+			<meta
+				name="google-site-verification"
+				content="2NEjQXuPpAZn1qBwWaCQCW049bja-eAPjfpGZg-aTF4"
+			/>
 			<script
 				async
 				src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3926462216067158"
 				crossOrigin="anonymous"
+			/>
+			<meta
+				name="naver-site-verification"
+				content="c9c69a7d089e0de9420276fed17efd10e80d8dce"
 			/>
 			{children}
 		</>

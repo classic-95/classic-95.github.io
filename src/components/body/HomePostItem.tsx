@@ -1,10 +1,10 @@
+import React, { useMemo } from "react";
 import { Link } from "gatsby";
 import { GatsbyImage, getImage } from "gatsby-plugin-image";
-import React, { useMemo } from "react";
 import styled from "styled-components";
-import palette from "../../libs/styles/palette";
-import media from "../../libs/styles/media";
 import dateFormatter from "../../libs/formatter";
+import media from "../../libs/styles/media";
+import palette from "../../libs/styles/palette";
 
 const Container = styled.div`
 	width: 100%;
@@ -19,6 +19,19 @@ const Container = styled.div`
 
 		${media.custom(767)} {
 			width: 100px;
+		}
+	}
+
+	time {
+		display: block;
+		margin-bottom: 16px;
+		font-size: 0.875em;
+		line-height: 1.375rem;
+		color: #666;
+
+		${media.custom(1023)} {
+			font-size: 0.75em;
+			margin-bottom: 9px;
 		}
 	}
 
@@ -85,13 +98,6 @@ const Label = styled.span`
 	}
 `;
 
-const DateLabel = styled(Label)`
-	margin-bottom: 16px;
-	${media.custom(1023)} {
-		margin-bottom: 9px;
-	}
-`;
-
 const MoreLabel = styled.span`
 	font-size: 0.75em;
 	color: ${palette.viloet[2]};
@@ -119,7 +125,7 @@ export default function HomePostItem({ slug, post }: Props) {
 				<LabelContainer>
 					<TitleLabel>{post.title}</TitleLabel>
 					<Label>{post.description}</Label>
-					<DateLabel className="date">{dateFormatter(post.created_at)}</DateLabel>
+					<time dateTime={post.created_at}>{dateFormatter(post.created_at)}</time>
 					<MoreLabel className="more">{"더보기 >"}</MoreLabel>
 				</LabelContainer>
 				{image && <GatsbyImage className="thumbnail" image={image} alt="post thumbnail" />}
