@@ -1,684 +1,178 @@
-<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Classic95의 블로그]]></title><description><![CDATA[누구나 쉽게 따라할 수 있는, 남녀노소 모두를 위한 개발 블로그]]></description><link>https://classic-95.com?utm_source=blog-feed&amp;utm_medium=feed&amp;utm_campaign=feed</link><generator>GatsbyJS</generator><lastBuildDate>Wed, 22 Nov 2023 07:27:12 GMT</lastBuildDate><item><title><![CDATA[[gatsby] mdx 기반 블로그 만들기-1]]></title><description><![CDATA[markdown, md 또는 mdx 기반의 블로그를 만들 때 가장 많은 선택을 받는 프레임워크들은 크게 세 가지가 있죠. 바로 jekyll, Hugo, Gatsby인데요.
-
-이 중 오늘은 Gatsby를 사용해서 블로그를 만드는 방법에 대해 알아보도록…]]></description><link>https://classic-95.com/posts/2023/09/gatsby-mdx-blog-1/</link><guid isPermaLink="false">https://classic-95.com/posts/2023/09/gatsby-mdx-blog-1/</guid><pubDate>Fri, 08 Sep 2023 13:00:00 GMT</pubDate><content:encoded>
-markdown, md 또는 mdx 기반의 블로그를 만들 때 가장 많은 선택을 받는 프레임워크들은 크게 세 가지가 있죠.
-
-바로 [jekyll](https://jekyllrb-ko.github.io/), [Hugo](https://gohugo.io/), [Gatsby](https://www.gatsbyjs.com/)인데요.
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Classic95의 블로그]]></title><description><![CDATA[누구나 쉽게 따라할 수 있는, 남녀노소 모두를 위한 개발 블로그]]></description><link>https://classic-95.com?utm_source=blog-feed&amp;utm_medium=feed&amp;utm_campaign=feed</link><generator>GatsbyJS</generator><lastBuildDate>Wed, 22 Nov 2023 08:45:50 GMT</lastBuildDate><item><title><![CDATA[[gatsby] mdx 기반 블로그 만들기-1]]></title><description><![CDATA[gatsby 프레임워크의 mdx 기반 블로그를 만들어봐요.]]></description><link>https://classic-95.com/posts/2023/09/gatsby-mdx-blog-1/</link><guid isPermaLink="false">https://classic-95.com/posts/2023/09/gatsby-mdx-blog-1/</guid><pubDate>Fri, 08 Sep 2023 13:00:00 GMT</pubDate><content:encoded>markdown, md 또는 mdx 기반의 블로그를 만들 때 가장 많은 선택을 받는 프레임워크들은 크게 세 가지가 있죠. 바로 jekyll, Hugo, Gatsby인데요.
 
 이 중 오늘은 Gatsby를 사용해서 블로그를 만드는 방법에 대해 알아보도록 해요.
 
----
-
-## 1. Gatsby 설치 환경 만들기
+1. Gatsby 설치 환경 만들기
 
 macOS와 Windows로 나눠서 설명을 할 예정인데 각 항목별로 이미 설치하신 경우에는 바로 스크롤을 아래로 내려주세요.
 
-물론 [공식문서](https://www.gatsbyjs.com/docs/tutorial/getting-started/part-0/#installation-guide)에도 이미 잘 정리되어 있으니 공식문서를 보고 진행하셔도 무방해요.
+물론 공식문서에도 이미 잘 정리되어 있으니 공식문서를 보고 진행하셔도 무방해요.
 
-### 1-1-1. macOS Node.js 설치하기
+1-1-1. macOS Node.js 설치하기
 
 우선 Homebrew가 설치됐다고 가정하고 시작할게요.
 
-만약 아직 설치하기 전이라면 [이 포스팅](/posts/2023/09/install-homebrew)을 보고 따라하시면 되요.
+만약 아직 설치하기 전이라면 이 포스팅을 보고 따라하시면 되요.
 
 brew가 설치된 상태에서 터미널을 열고 아래의 명령어를 실행 시켜요.
 
-(만약 설치 중 오류가 발생하면 [애플 사이트](https://developer.apple.com/download/more/)에서 맥에 로그인한 계정으로 다시 로그인한 후 터미널에서 다시 진행해주세요.)
+(만약 설치 중 오류가 발생하면 애플 사이트에서 맥에 로그인한 계정으로 다시 로그인한 후 터미널에서 다시 진행해주세요.)
 
 이후에 소프트웨어 라이센스 동의 여부를 물어보면 동의하고 진행해주세요.
 
-```bash
 xcode-select --install
-```
+
 
 이후 homebrew를 사용해서 node.js를 설치해줘요.
 
-```bash
 brew install node
-```
 
-### 1-1-2. macOS Git 설치하기
+1-1-2. macOS Git 설치하기
 
 git은 개발자라면 기본적으로 사용하는 프로그램이기 때문에 이미 다 설치한 상태겠지만 혹시나 해서 적어둘게요!
 
-```bash
 brew install git
-```
 
-설치 완료 후 [Github](https://github.com/) 계정을 등록해주세요.
 
-```bash
+설치 완료 후 Github 계정을 등록해주세요.
+
 git config --global user.name &quot;your github name&quot;
 git config --global user.email &quot;your github email&quot;
-```
 
-### 1-2-1. Windows Node.js 설치하기
+1-2-1. Windows Node.js 설치하기
 
 Windows에서는 설치가 매우 간단해요.
 
-[공식 사이트](https://nodejs.org/en)를 방문해서 LTS가 붙은 버튼을 클릭해주세요.
+공식 사이트를 방문해서 LTS가 붙은 버튼을 클릭해주세요.
 
 그 후 다운받은 .exe 파일을 실행시켜주세요.
 
 설치 중 이 화면이 나오면 체크박스를 클릭 후 진행해주세요!
 
-![node.js chocolatey](../../../images/2023/09/gatsby-mdx-blog-1-1.webp)
+1-2-2. Windows Git 설치하기
 
-### 1-2-2. Windows Git 설치하기
+Gi…</content:encoded></item><item><title><![CDATA[[react-native] react-navigation으로 화면 전환 시작하기]]></title><description><![CDATA[react-navigation 오픈 소스를 사용하여 react-native에서의 화면 전환에 대해 알아보자.]]></description><link>https://classic-95.com/posts/2023/09/react-native-react-navigation-1/</link><guid isPermaLink="false">https://classic-95.com/posts/2023/09/react-native-react-navigation-1/</guid><pubDate>Mon, 04 Sep 2023 13:13:42 GMT</pubDate><content:encoded>오늘은 react-navigation 오픈 소스를 사용하여 react-native에서의 화면 전환에 대해 알아보도록 해요. 우선 공식문서를 켜놓으시면 더 편하게 따라오실 수 있어요. 블로그 글도 간단하게 한글로 정리되서 좋지만 항상 공식문서를 읽는 습관을 들이는게 좋아요.
 
-Git도 Windows에서는 설치가 매우 간단해요.
+1. 프로젝트 만들기
 
-[공식 사이트](https://gitforwindows.org/)를 방문 후 Download 버튼을 클릭해서 설치시고 .exe 파일을 실행해주세요.
-
-### 1-3. gatsby-cli 설치 (macOS, Windows 공통)
-
-이제 gatsby command-line-interface를 설치해요.
-
-```bash
-npm install -g gatsby-cli
-```
-
-설치가 완료되면 잘 설치됐나 확인해요.
-
-```bash
-gatsby --version
-# Gatsby CLI version: 5.12.4
-# Gatsby version: 5.12.9
-```
-
-## 2. Gatsby 프로젝트 생성하기
-
-이제 드디어 Gatsby 프로젝트를 생성해볼거에요!
-
-이미 틀이 잡혀있는 템플릿을 사용해서 바로 만들어도 되지만 오늘은 배워보는 것이니 만큼 초기 상태로 프로젝트를 생성해보도록 해요!
-
-```bash
-# 프로젝트 생성을 원하는 폴더로 이동 후 진행해주세요.
-
-gatsby new
-```
-
-원하시는 블로그 이름을 입력해주세요.
-
-```bash
-What would you like to call your site?
-✔ · Classic95의 블로그
-```
-
-원하시는 프로젝트명을 설정해주세요.
-
-```bash
-What would you like to name the folder where your site will be created?
-✔ {현재 폴더명}/ Classic95
-```
-
-js와 ts 중에 선택해주세요.
-
-저는 당연히 ts를 선택했는데 앞으로 이 글을 계속 따라오실 분들은 ts를 선택해주시고 아니신 분들은 원하시는 언어를 선택해주세요.
-
-앞으로는 ts가 오픈 소스들이나 공동 작업 프로젝트 혹은 회사 등 여러 곳에서 많이 정착될 것으로 예상되니 사용하시는 걸 권장드려요!
-
-```bash
-Will you be using JavaScript or TypeScript?
-  JavaScript
-❯ TypeScript
-```
-
-Content Management System을 선택하는 부분인데 이 포스팅의 마지막은 Github에 배포하는 게 목표이기 때문에  No (or I&apos;ll add it later)를 선택할게요.
-
-물론, 추후에 원하는 CMS를 선택할 수 있어요.
-
-```bash
-? Will you be using a CMS?
-(Single choice) Arrow keys to move, enter to confirm
-❯ No (or I&apos;ll add it later)
-  –
-  Contentful
-  DatoCMS
-  Netlify CMS
-  Sanity
-  Shopify
-  WordPress
-```
-
-원하시는 스타일링 시스템을 선택하시면 gatsby 플러그인 설정을 자동으로 해줘서 편한 기능이에요.
-
-저는 styled-components를 선택했어요. 
-
-이건 원하시는 걸 선택해주세요.
-
-```bash
-? Would you like to install a styling system?
-(Single choice) Arrow keys to move, enter to confirm
-  No (or I&apos;ll add it later)
-  –
-  Emotion
-  PostCSS
-  Sass
-❯ styled-components
-  Theme UI
-  vanilla-extract
-  Tailwind CSS
-```
-
-이번에는 프로젝트 생성에 맞춰 추가되길 원하는 기능들을 선택해주세요.
-
-저는 아래의 네 가지를 선택했어요. 이 블로그 글들을 쭉 따라가실 거라면 제가 선택한 걸 동일하게 선택하는 걸 추천드려요.
-
-다 따라하지 않으시더라도 이 중 Add Markdown and MDX support는 반드시 선택해주세요!
-
-물론 여기서 선택하지 않으셔도 추후에 플러그인을 수동으로 설정하실 수 있으니 걱정마세요!
-
-```bash
-? Would you like to install additional features with other plugins?
-(Multiple choice) Use arrow keys to move, spacebar to select, and confirm with an enter on &quot;Done&quot;
- ◯ Add the Google gtag script for e.g. Google Analytics
- ◉ Add responsive images
- ◉ Add an automatic sitemap
- ◉ Generate a manifest file
-❯◉ Add Markdown and MDX support
- ◯ Add Markdown support (without MDX)
-  ─────
-  Done
-```
-
-마지막으로 지금까지 설정한 것들을 확인하는 절차에요.
-
-실수하신 게 없으시다면 확인하신 후 Yes를 입력해주세요.
-
-```bash
-Thanks! Here&apos;s what we&apos;ll now do:
-
-    🛠  Create a new Gatsby site in the folder Classic95
-    🎨 Get you set up to use styled-components for styling your site
-    🔌 Install gatsby-plugin-image, gatsby-plugin-sitemap,
-gatsby-plugin-manifest, gatsby-plugin-mdx
-
-
-? Shall we do this? (Y/n) › Yes
-```
-
-## 3. Gastby 프로젝트 실행
-
-설치가 완료되면 아래의 명령어들을 입력해주세요.
-
-```bash
-cd {your project name}
-
-yarn develop
-```
-
-[http://localhost:8000](http://localhost:8000) 주소를 브라우저로 입력했을 때 아래와 같은 화면이 나오면 성공이에요!
-
-![gatsby new project default page](../../../images/2023/09/gatsby-mdx-blog-1-2.webp)
-
----
-
-## 정리하며
-
-오늘은 Gatsby 블로그 설치 환경과 초기 프로젝트를 생성하고 실행하는 법에 대해 알아봤어요.
-
-앞으로는 mdx 기반으로 블로그 글 쓰는 법과 쓴 글들을 화면에 구성하는 법에 대해 배워볼게요!</content:encoded></item><item><title><![CDATA[[react-native] react-navigation으로 화면 전환 시작하기]]></title><description><![CDATA[오늘은 react-navigation 오픈 소스를 사용하여 react-native에서의 화면 전환에 대해 알아보도록 해요. 우선 공식문서를 켜놓으시면 더 편하게 따라오실 수 있어요. 블로그 글도 간단하게 한글로 정리되서 좋지만 항상 공식문서를 읽는…]]></description><link>https://classic-95.com/posts/2023/09/react-native-react-navigation-1/</link><guid isPermaLink="false">https://classic-95.com/posts/2023/09/react-native-react-navigation-1/</guid><pubDate>Mon, 04 Sep 2023 13:13:42 GMT</pubDate><content:encoded>
-import img1 from &apos;../../../images/2023/09/navigation-1-0.webp&apos;;
-import img2 from &apos;../../../images/2023/09/navigation-1-1.webp&apos;;
-
-오늘은 react-navigation 오픈 소스를 사용하여 react-native에서의 화면 전환에 대해 알아보도록 해요.
-
-우선 [공식문서](https://reactnavigation.org/docs/getting-started/)를 켜놓으시면 더 편하게 따라오실 수 있어요. 블로그 글도 간단하게 한글로 정리되서 좋지만 항상 공식문서를 읽는 습관을 들이는게 좋아요.
-
----
-
-## 1. 프로젝트 만들기
-
-우선 프로젝트를 한 번 만들어보도록 하죠. 
+우선 프로젝트를 한 번 만들어보도록 하죠.
 
 mac이면 터미널 window면 cmd를 켜서 react-native 프로젝트를 만들어주세요.
 
-저는 navigation이라는 이름의 react-native 프로젝트를 한 번 만들어볼게요. 
+저는 navigation이라는 이름의 react-native 프로젝트를 한 번 만들어볼게요.
 
-```bash
 # npx react-native init {프로젝트명}
 npx react-native init navigation
-```
 
- ## 2. react-navigation 설치
+2. react-navigation 설치
 
- 공식문서에서 말하는대로 dependencies와 함께 react-navigation을 설치해볼게요.
+공식문서에서 말하는대로 dependencies와 함께 react-navigation을 설치해볼게요.
 
- ```bash
- # cd {생성한 프로젝트명}
- cd navigation
+# cd {생성한 프로젝트명}
+cd navigation
 
- # react-navigation/native와 react-navigation/stack 
- # react-navigation/native의 dependencies인 react-native-screens, react-native-safe-area-context
- # react-navigation/stack의 dependency인 react-native-gesture-handler 를 함께 설치
- yarn add @react-navigation/native @react-navigation/stack react-native-screens react-native-safe-area-context react-native-gesture-handler
- ```
+# react-navigation/native와 react-navigation/stack 
+# react-navigation/native의 dependencies인 react-native-screens, react-native-safe-area-context
+# react-navigation/stack의 dependency인 react-native-gesture-handler 를 함께 설치
+yarn add @react-navigation/native @react-navigation/stack react-native-screens react-native-safe-area-context react-native-gesture-handler
 
- ### 2-1. ios 추가 작업
+2-1. ios 추가 작업
 
- ios는 방금 설치한 모듈들을 연결하기 위해 pod install을 진행해줘야 해요.
+ios는 방금 설치한 모듈들을 연결하기 위해 pod install을 진행해줘야 해요.
 
- ```bash
- cd ios
- pod install
- cd ..
- ```
+cd ios
+pod install
+cd ..
 
-### 2-2. android 추가 작업
+2-2. android 추가 작업
 
-android의 경우 \&quot;{&quot;android/app/src/main/java/&lt;프로젝트명&gt;/MainActivity.java&quot;}\&quot; 에서 아래의 코드를 추가해야해요.
+android의 경우 &quot;&quot; 에서 아래의 코드를 추가해야해요.
 
-아래 코드를 추가하지 않으면 앱을 백그라운드에서 포그라운드로 전환할 때 비정상 종료가 발생하는 경우가 생겨요.
-
-```java
-// android/app/src/main/java/&lt;프로젝트명&gt;/MainActivity.java
-
-public class MainActivity extends ReactActivity {
-  // ...
-  @Override
-  protected void onCreate(Bundle savedInstanceState) {
-    super.onCreate(null);
-  }
-  // ...
-}
-```
-
-### 2-3. ios, android 공통 작업
-
-@react-navigation/stack의 dependency인 react-native-gesture-handler를 index.js에서 import해줘요.
-
-그렇지 않으면 빌드 중 오류가 발생하거나 화면 전환에 문제가 생길 수 있어요.
-
-```js 
-// index.js
-
-// ...
-- import &apos;react-native-gesture-handler&apos;;
-// ...
-```
-
-## 3. 테스트 화면 작성
-
-테스트 화면은 아래와 같이 구성할 예정이에요.
-
-기존에 루트 디렉토리에 있던 App.tsx를 src/screens 폴더를 만든 후에 옮겨주세요. 
-
-마찬 가지로 src/screens 폴더 안에 Navigator.tsx, Screen1.tsx와 Screen2.tsx 파일을 만들어주세요.
-
-그리고 Navigation의 type을 선언하기 위한 Navigation.ts 파일을 types 폴더를 만든 후에 만들어주세요.
-
-```
-📦src
- ┣ 📂screens
- ┃ ┣ 📜App.tsx
- ┃ ┣ 📜Navigator.tsx
- ┃ ┣ 📜Screen1.tsx
- ┃ ┗ 📜Screen2.tsx
- ┗ 📂types
- ┃ ┗ 📜Navigation.ts
-```
-
-### 3-1. Navigation.ts 타입 코드 작성
-
-다른 코드들을 작성하기에 앞서 Naivgation에 어떤 스크린들이 존재하는지 타입을 지정해요.
-
-우리는 Screen1과 Screen2만 존재하기 때문에 아래와 같이 타입을 설정해요.
-
-Screen1: 과 Screen2: 의 undefined 값은 각 스크린들을 화면에 띄울 때 필요한 타입이 존재하지 않는다는 뜻이에요.
-
-이에 관해서는 이어지는 포스팅에서 더 설명해보도록 하고 지금은 넘어가도록 할게요.
-
-```ts
-// src/types/Navigation.ts
-
-export type NaviParamList = {
-	Screen1: undefined;
-	Screen2: undefined;
-};
-```
-
-### 3-2. Screen1.tsx 코드 작성
-
-크게 어려운 내용은 없지만 설명을 덧붙이자면 우리가 위의 [3-1](/posts/2023/09/react-native-react-navigation-1/#3-1-navigationts-타입-코드-작성)에서 선언해놨던 NaviParamList와 현재 스크린 명을 명시해서 NavigationProp을 선언해요.
-
-그 후 useNavigation 훅을 통해 선언해놓은 NavigationProp 타입을 사용하는 navigation 변수를 생성해요.
-
-Screen-2로 이동 버튼에 onPress event를 붙여서 Screen2로 이동하는 함수를 실행시켜요.
-
-&lt;img src={img1} style={{width: 250, margin: &quot;auto&quot;, display: &quot;block&quot;, marginBottom: 20}} alt=&quot;react-native navigation screen1&quot; /&gt;
-
-```tsx
-// src/screens/Screen1.tsx
-
-import { StackNavigationProp } from &apos;@react-navigation/stack&apos;;
-import React from &apos;react&apos;;
-import { StyleSheet, Text, TouchableOpacity, View } from &apos;react-native&apos;;
-import { NaviParamList } from &apos;../types/Navigation&apos;;
-import { useNavigation } from &apos;@react-navigation/native&apos;;
-
-const styles = StyleSheet.create({
-	container: {
-		flex: 1,
-		alignItems: &apos;center&apos;,
-		justifyContent: &apos;center&apos;,
-	},
-	button: {
-		padding: 10,
-		backgroundColor: &apos;black&apos;,
-	},
-	buttonLabel: {
-		color: &apos;white&apos;,
-	},
-});
-
-type NavigationProp = StackNavigationProp&lt;NaviParamList, &apos;Screen1&apos;&gt;;
-
-export default function Screen1() {
-	const navigation = useNavigation&lt;NavigationProp&gt;();
-
-	return (
-		&lt;View style={styles.container}&gt;
-			&lt;TouchableOpacity style={styles.button} onPress={() =&gt; navigation.navigate(&apos;Screen2&apos;)}&gt;
-				&lt;Text style={styles.buttonLabel}&gt;Screen-2로 이동&lt;/Text&gt;
-			&lt;/TouchableOpacity&gt;
-		&lt;/View&gt;
-	);
-}
-
-```
-
-### 3-2. Screen2.tsx 코드 작성
-
-위의 [Screen1](/posts/2023/09/react-native-react-navigation-1/#3-2-screen1tsx-코드-작성)과 동일해요.
-
-&lt;img src={img2} style={{width: 250, margin: &quot;auto&quot;, display: &quot;block&quot;, marginBottom: 20}} alt=&quot;react-native navigation screen2&quot;/&gt;
-
-```tsx
-// src/screens/Screen2.tsx
-
-import { StackNavigationProp } from &apos;@react-navigation/stack&apos;;
-import React from &apos;react&apos;;
-import { StyleSheet, Text, TouchableOpacity, View } from &apos;react-native&apos;;
-import { NaviParamList } from &apos;../types/Navigation&apos;;
-import { useNavigation } from &apos;@react-navigation/native&apos;;
-
-const styles = StyleSheet.create({
-	container: {
-		flex: 1,
-		alignItems: &apos;center&apos;,
-		justifyContent: &apos;center&apos;,
-	},
-	button: {
-		padding: 10,
-		backgroundColor: &apos;black&apos;,
-	},
-	buttonLabel: {
-		color: &apos;white&apos;,
-	},
-});
-
-type NavigationProp = StackNavigationProp&lt;NaviParamList, &apos;Screen2&apos;&gt;;
-
-export default function Screen2() {
-	const navigation = useNavigation&lt;NavigationProp&gt;();
-
-	return (
-		&lt;View style={styles.container}&gt;
-			&lt;TouchableOpacity style={styles.button} onPress={() =&gt; navigation.navigate(&apos;Screen1&apos;)}&gt;
-				&lt;Text style={styles.buttonLabel}&gt;Screen-1로 이동&lt;/Text&gt;
-			&lt;/TouchableOpacity&gt;
-		&lt;/View&gt;
-	);
-}
-```
-
-### 3-4. Navigator.tsx 코드 작성
-
-이제 위에서 만든 Screen1과 Screen2를 연결할 네이게이터를 만들어야겠죠? 
-
-우선 createStackNavigator를 사용해서 Stack 객체를 만들어줘요.
-
-그 이후 아래의 코드와 같이 포함시키고 싶은 스크린들을 넣어줘요.
-
-```tsx
-// src/screens/Navigator.tsx
-
-import React from &apos;react&apos;;
-import { createStackNavigator } from &apos;@react-navigation/stack&apos;;
-import { NaviParamList } from &apos;../types/Navigation&apos;;
-import Screen1 from &apos;./Screen1&apos;;
-import Screen2 from &apos;./Screen2&apos;;
-
-const Stack = createStackNavigator&lt;NaviParamList&gt;();
-
-export default function Navigator() {
-	return (
-		&lt;Stack.Navigator&gt;
-			&lt;Stack.Screen name=&quot;Screen1&quot; component={Screen1} /&gt;
-			&lt;Stack.Screen name=&quot;Screen2&quot; component={Screen2} /&gt;
-		&lt;/Stack.Navigator&gt;
-	);
-}
-```
-
-### 3-5. App.tsx 코드 수정
-
-이제 App.tsx의 기본 코드들을 모두 지운 후에 아래 코드와 같이 NavigationContainer로 위에서 만들어준 Navigator를 감싸줘요.
-
-```tsx
-// src/screens/App.tsx
-
-import { NavigationContainer } from &apos;@react-navigation/native&apos;;
-import React from &apos;react&apos;;
-import Navigator from &apos;./Navigator&apos;;
-
-export default function App() {
-	return (
-		&lt;NavigationContainer&gt;
-			&lt;Navigator /&gt;
-		&lt;/NavigationContainer&gt;
-	);
-}
-```
-
-### 3-6. index.js 코드 수정
-
-마지막으로 index.js의 App.tsx import 경로를 수정해주면 끝이에요!
-
-```diff
-// ...
-
-- import App from &apos;./App&apos;;
-+ import App from &apos;./src/screens/App&apos;;
-
-// ...
-```
-
-## 4. 실행
-
-이제 위에서 작성한 코드들이 잘 동작하는지 확인해요.
-
-아마 잘 작동할텐데요. 
-
-react-native 0.7 버전 이후로 새로 만든 프로젝트가 실행 중 오류가 발생하는 경우가 있어요.
-
-Unable to boot device in current state: Booted 라는 문구가 뜨면서 말이죠.
-
-이런 경우 해결은 [이 포스팅](/posts/2023/09/react-native-unable-to-boot-device)을 확인해주세요.
-
-```bash
-# ios test
-yarn ios
-
-# android test
-yarn android
-```
-
----
-
-## 전체 코드
-
-[https://github.com/flaassh/react-navigation-practice/tree/main/navigation-1](https://github.com/flaassh/react-navigation-practice/tree/main/navigation-1)
-
----
-
-## 정리하며
-
-오늘은 react-navigation을 이용하여 화면을 전환하는 방법을 간단한 코드를 작성해서 알아봤어요.
-
-다음 포스팅에서는 react-navigation의 navigate, push, replace 등의 화면 전환 함수들을 어떤 상황에
-어떻게 사용해야 하는지에 대해 알아보도록 해요.</content:encoded></item><item><title><![CDATA[[react-native] ios simulator unable to boot device in current state: Booted 오류 해결]]></title><description><![CDATA[오늘은 react-native에서 ios simulator를 실행시킬 때 종종 발생하는 unable to boot device in current state: Booted 오류를 해결하는 방법에 대해 알아봐요. 오류가 나는 이유부터 알아보자면…]]></description><link>https://classic-95.com/posts/2023/09/react-native-unable-to-boot-device/</link><guid isPermaLink="false">https://classic-95.com/posts/2023/09/react-native-unable-to-boot-device/</guid><pubDate>Sun, 03 Sep 2023 11:05:20 GMT</pubDate><content:encoded>
-import img1 from &apos;../../../images/2023/09/boot-1.webp&apos;;
-
-![ios simulator Unable to boot device in current state: Booted](../../../images/2023/09/boot-0.webp)
-
-오늘은 react-native에서 ios simulator를 실행시킬 때 종종 발생하는 unable to boot device in current state: Booted 오류를 해결하는 방법에 대해 알아봐요.
-
-오류가 나는 이유부터 알아보자면 시뮬레이터가 실행 상태
+아래 코드를 추가하지 않으면 앱을…</content:encoded></item><item><title><![CDATA[[react-native] ios simulator unable to boot device in current state: Booted 오류 해결]]></title><description><![CDATA[오늘은 react-native에서 ios simulator를 실행시킬 때 종종 발생하는 unable to boot device in current state: Booted 오류를 해결하는 방법에 대해 알아봐요.]]></description><link>https://classic-95.com/posts/2023/09/react-native-unable-to-boot-device/</link><guid isPermaLink="false">https://classic-95.com/posts/2023/09/react-native-unable-to-boot-device/</guid><pubDate>Sun, 03 Sep 2023 11:05:20 GMT</pubDate><content:encoded>오늘은 react-native에서 ios simulator를 실행시킬 때 종종 발생하는 unable to boot device in current state: Booted 오류를 해결하는 방법에 대해 알아봐요. 오류가 나는 이유부터 알아보자면 시뮬레이터가 실행 상태
 
 그럼 이제 해결 방법에 대해 알아볼까요?
 
----
-
-## 1. 해결 방법 
-
-### 1-1. ios simulator settings 켜기
+1. 해결 방법
+1-1. ios simulator settings 켜기
 
 ios 시뮬레이터를 켠 상태에서 아래의 이미지와 같이 좌측 상단의 메뉴바에서 Simulator -&gt; Settings... 를 클릭해주세요.
 
 혹은 시뮬레이터를 켠 상태에서 (⌘ + ,)를 함께 눌러주세요.
 
-&lt;img src={img1} style={{width: 250, margin: &quot;auto&quot;, display: &quot;block&quot;, marginBottom: 20}} alt=&quot;ios simulator settings&quot; /&gt;
+1-2. Simulator lifetime 변경
 
-### 1-2. Simulator lifetime 변경
+아래의 이미지와 같이 Simulator lifetime 부분의 &quot;When Simulator starts boot the most recently used simulator&quot;를 체크 해제해주세요.
 
-아래의 이미지와 같이 Simulator lifetime 부분의 \&quot;When Simulator starts boot the most recently used simulator\&quot;를 체크 해제해주세요.
-
-![ios simulator lifetime \&quot;When Simulator starts boot the most recently used simulator\&quot;](../../../images/2023/09/boot-2.webp)
-
----
-
-## 참고
-
-- [stack overflow](https://stackoverflow.com/questions/24135067/unable-to-boot-device-in-current-state-booted/71249396#71249396)
-
----
-
-## 정리하며
+참고
+stack overflow
+정리하며
 
 오늘은 react-native에서 ios simulator를 실행시킬 때 종종 발생하는 unable to boot device in current state: Booted 오류를 해결하는 방법에 대해 알아봤어요.
 
-이미지와 함께 보면서 따라오면 큰 어려움 없이 해결하실 수 있으니 차근차근 따라해서 해결하셨으면 좋겠어요.</content:encoded></item><item><title><![CDATA[[react-native] "launchPackager.command" can't be opened 오류 해결]]></title><description><![CDATA[오늘은 react-native 0.7 버전 이후에 ios 시뮬레이터를 실행시키면 발생하는 "launchPackager.command" can't be opened 오류를 해결하는 방법에 대해 알아봐요. 오류가 나는 이유부터 알아보자면 시뮬레이터를…]]></description><link>https://classic-95.com/posts/2023/09/react-native-launch-packager-command-cant-be-opened/</link><guid isPermaLink="false">https://classic-95.com/posts/2023/09/react-native-launch-packager-command-cant-be-opened/</guid><pubDate>Sun, 03 Sep 2023 00:15:20 GMT</pubDate><content:encoded>
-import image from &apos;../../../images/2023/09/launch-packager-7.webp&apos;;
-
-![ios simulator \&quot;launchPackager.command can&apos;t be opened\&quot; error](../../../images/2023/09/launch-packager-0.webp)
-
-오늘은 react-native 0.7 버전 이후에 ios 시뮬레이터를 실행시키면 발생하는 \&quot;launchPackager.command\&quot; can&apos;t be opened 오류를 해결하는 방법에 대해 알아봐요.
-
-오류가 나는 이유부터 알아보자면 시뮬레이터를 실행시키기 위해 터미널을 실행시켜야 하는데 해당 권한이 존재하지 않아서 발생하는 문제에요.
+이미지와 함께 보면서 따라오면 큰 어려움 없이 해결하실 수 있으니 차근차근 따라해서 해결하셨으면 좋겠어요.</content:encoded></item><item><title><![CDATA[[react-native] "launchPackager.command" can't be opened 오류 해결]]></title><description><![CDATA[react-native 0.7 이후 버전에서 새로운 프로젝트 생성 후 발생하는 "launchPackager.command" can't be opened ios simulator 실행 오류를 해결해보자.]]></description><link>https://classic-95.com/posts/2023/09/react-native-launch-packager-command-cant-be-opened/</link><guid isPermaLink="false">https://classic-95.com/posts/2023/09/react-native-launch-packager-command-cant-be-opened/</guid><pubDate>Sun, 03 Sep 2023 00:15:20 GMT</pubDate><content:encoded>오늘은 react-native 0.7 버전 이후에 ios 시뮬레이터를 실행시키면 발생하는 &quot;launchPackager.command&quot; can&apos;t be opened 오류를 해결하는 방법에 대해 알아봐요. 오류가 나는 이유부터 알아보자면 시뮬레이터를 실행시키기 위해 터미널을 실행시켜야 하는데 해당 권한이 존재하지 않아서 발생하는 문제에요.
 
 그럼 이제 해결 방법에 대해 알아볼까요?
 
----
-
-## 1. 해결 방법 
-
-### 1-1. 프로젝트 폴더 node_modules 열기
+1. 해결 방법
+1-1. 프로젝트 폴더 node_modules 열기
 
 현재 프로젝트의 폴더를 열어서 node_modules 폴더를 열어주세요.
 
-![react-native node_modules folder](../../../images/2023/09/launch-packager-1.webp)
-
-### 1-2. react-native 폴더 열기
+1-2. react-native 폴더 열기
 
 node_modules 폴더 안에서 react-native 폴더를 찾아서 열어주세요.
 
-![react-native node_modules/react-native folder](../../../images/2023/09/launch-packager-2.webp)
-
-### 1-3. scripts 폴더 열기
+1-3. scripts 폴더 열기
 
 ./node_modules/react-native 폴더 안에서 scripts 폴더를 찾아서 열어주세요.
 
-![react-native node_modules/react-native/scripts folder](../../../images/2023/09/launch-packager-3.webp)
-
-### 1-4. launchPackager.command 파일 다른 프로그램으로 열기
+1-4. launchPackager.command 파일 다른 프로그램으로 열기
 
 ./node_modules/react-native/scripts 폴더 안에서 launchPackager.command 파일을 우클릭해서 아래 이미지와 같이 다른 파일로 열기를 클릭해요.
 
-![react-native node_modules/react-native/scripts/launchPackager.command file](../../../images/2023/09/launch-packager-4.webp)
-
-### 1-5. iTerm.app으로 앱 열기
+1-5. iTerm.app으로 앱 열기
 
 아래 이미지처럼 iTerm.app으로 앱을 설정하고 Always Open With 체크 박스를 클릭한 후 열기를 클릭해요.
 
-![set launchPackager.command file&apos;s default terminal](../../../images/2023/09/launch-packager-5.webp)
-
-### 1-6. iTerm 앱 확인
+1-6. iTerm 앱 확인
 
 위에서 열기를 클릭하면 아래와 같이 iTerm이 실행되는 걸 확인하고 창을 꺼주세요.
 
-![react-native terminal](../../../images/2023/09/launch-packager-6.webp)
+1-7. 다시 앱 실행
 
-### 1-7. 다시 앱 실행
+원하시는 방식으로 앱을 실행시켜 주세요.
 
-원하시는 방식으로 앱을 실행시켜 주세요. 
-
-```bash
 npm run ios
 
 # or 
 # yarn ios
-```
 
-&lt;img src={image} style={{width: 250, margin: &quot;auto&quot;, display: &quot;block&quot;, marginBottom: 20}} alt=&quot;react-native default screen&quot; /&gt;
+정리하며
 
----
+오늘은 react-native 0.7 버전 이후에 ios 시뮬레이터를 실행시키면 발생하는 &quot;launchPackager.command&quot; can&apos;t be opened 오류를 해결하는 방법에 대해 알아봤어요.
 
-## 정리하며
-
-오늘은 react-native 0.7 버전 이후에 ios 시뮬레이터를 실행시키면 발생하는 \&quot;launchPackager.command\&quot; can&apos;t be opened 오류를 해결하는 방법에 대해 알아봤어요.
-
-이미지와 함께 보면서 따라오면 큰 어려움 없이 해결하실 수 있으니 차근차근 따라해서 해결하셨으면 좋겠어요.</content:encoded></item><item><title><![CDATA[[mac] iTerm2 설치]]></title><description><![CDATA[오늘은 mac 필수 앱인 iTerm2를 설치하고 기본 터미널과 다르게 알록달록하게 테마를 적용해봐요. 1. iTerm2 설치
+이미지와 함께 보면서 따라오면 큰 어려움 없이 해결하실 수 있으니 차근차근 따라해서 해결하셨으면 좋겠어요.</content:encoded></item><item><title><![CDATA[[mac] iTerm2 설치]]></title><description><![CDATA[mac에 iTemr2를 설치하고 oh-my-zsh로 알록달록한 터미널을 만들어봐요.]]></description><link>https://classic-95.com/posts/2023/09/install-iterm/</link><guid isPermaLink="false">https://classic-95.com/posts/2023/09/install-iterm/</guid><pubDate>Sat, 02 Sep 2023 13:00:00 GMT</pubDate><content:encoded>오늘은 mac 필수 앱인 iTerm2를 설치하고 기본 터미널과 다르게 알록달록하게 테마를 적용해봐요. 1. iTerm2 설치
 
 설치는 brew로 해줄게요.
 
 만약 Homebrew가 설치되어 있지 않으시면 이 포스팅을 따라서 설치하고 돌아와주세요.
 
-이제…]]></description><link>https://classic-95.com/posts/2023/09/install-iterm/</link><guid isPermaLink="false">https://classic-95.com/posts/2023/09/install-iterm/</guid><pubDate>Sat, 02 Sep 2023 13:00:00 GMT</pubDate><content:encoded>
-오늘은 mac 필수 앱인 iTerm2를 설치하고 기본 터미널과 다르게 알록달록하게 테마를 적용해봐요.
-
----
-
-## 1. iTerm2 설치
-
-설치는 brew로 해줄게요.
-
-만약 Homebrew가 설치되어 있지 않으시면 [이 포스팅](/posts/2023/09/install-homebrew)을 따라서 설치하고 돌아와주세요.
-
 이제 아래 명령어를 터미널에 입력해서 설치해주세요.
 
-```bash
 brew install iterm2
-```
 
-## 2. oh-my-zsh 설치
+2. oh-my-zsh 설치
 
 iterm2에서 여러 가지 테마를 적용하거나 자동완성 등의 기능을 적용하기 위해 zsh(Z shell)의 플러그인 중 하나인 oh-my-zsh를 설치해요.
 
-```bash
 sh -c &quot;$(curl -fsSL https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh)&quot;
-```
 
-## 3. iterm 컬러 스킴 및 설정 변경
+3. iterm 컬러 스킴 및 설정 변경
+3-1. 컬러 스킴 선택
 
-### 3-1. 컬러 스킴 선택
-
-[공식 사이트](https://iterm2colorschemes.com/)에서 여러 컬러 스킴들을 확인 후 다운로드 받으세요.
+공식 사이트에서 여러 컬러 스킴들을 확인 후 다운로드 받으세요.
 
 저는 개인적으로 파스텔톤이 이뻐서 아래의 Snazzy 컬러 스킴을 다운로드해서 사용 중이에요.
-
-&lt;a download=&quot;Snazzy.itermcolors&quot; href=&quot;/files/2023/09/Snazzy.itermcolors&quot;&gt;Snazzy 테마 다운로드&lt;/a&gt;
 
 어떤 테마든 다운로드 받으셨다면 더블 클릭하시면 자동으로 iterm2의 iTerm Color Preset에 추가되요.
 
@@ -686,154 +180,28 @@ sh -c &quot;$(curl -fsSL https://raw.github.com/robbyrussell/oh-my-zsh/master/to
 
 그리고 나온 아래와 같은 창에서 Profile -&gt; Colors -&gt; Color Presets... -&gt; Snazzy(또는 다운받은 컬러 스킴)를 선택해주세요.
 
-![iterm2 color presets](../../../images/2023/09/iterm-0.webp)
-
-### 3-2. 한글 깨짐 방지
+3-2. 한글 깨짐 방지
 
 터미널에서 한글이 깨지는 경우가 많이 발생하는데 아래와 같이 설정해서 한글 깨짐을 방지해주세요.
 
 위와 같은 창에서 Profile -&gt; Text -&gt; Unicode normalization form: NFC 로 변경해주세요.
 
-![iterm2 한글 깨짐 방지](../../../images/2023/09/iterm-1.webp)
-
-### 3-3. 상태바 추가
+3-3. 상태바 추가
 
 위와 같은 창에서 Profile -&gt; Session -&gt; Status bar enabled를 체크해주시고 오른쪽의 Configure Status Bar를 클릭해주세요.
 
-![iterm2 status bar](../../../images/2023/09/iterm-2.webp)
-
-그럼 아래와 같은 창이 나오는데 터미널에 표시됐으면 하는 컴포넌트를 클릭하시고 확인을 눌러주세요.
-
-저는 CPU Utilization, Memory Utilization, Nework Throughput, git state 총 네 개를 사용하고 있어요.
-
-하단에 Auto-Rainbow에서 색 테마를 선택할 수 있으니 좋아하시는 테마를 선택해주세요.
-
-![iterm2 status bar components](../../../images/2023/09/iterm-3.webp)
-
-저는 상태창이 하단에 있는게 좋아서 아래 이미지와 같이 수정했는데 이건 개인 취향이니까 마음껏 변경해주세요.
-
-Appearance -&gt; General -&gt; Status bar location 에서 변경하실 수 있어요.
-
-![iterm2 status bar location](../../../images/2023/09/iterm-4.webp)
-
-## 4. 플러그인 설치
-
-이제 oh-my-zsh의 가장 강점인 플러그인들을 설치해봐요.
-
-저는 명령어 하이라이팅 플러그인([zsh-syntax-highlighting](https://github.com/zsh-users/zsh-syntax-highlighting))과 자동완성 플러그인([zsh-autosuggestions](https://github.com/zsh-users/zsh-autosuggestions))을 사용해요.
-
-```bash
-# zsh-syntax-highlighting
-git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
-
-# zsh-autosuggestions
-git clone https://github.com/zsh-users/zsh-autosuggestions.git $ZSH_CUSTOM/plugins/zsh-autosuggestions
-```
-
-다운로드가 완료되면 ~/.zshrc 파일을 열어서 수정해줘요.
-
-```bash
-vi ~/.zshrc
-```
-
-```bash
-# ~/.zshrc
-# ...
-
-plugins=(
-    # ...
-    zsh-syntax-highlighting
-    zsh-autosuggestions
-    # ...
-)
-
-# ...
-```
-
-수정을 완료한 후 아래 명령어로 수정을 적용해줘요.
-
-```bash
-source ~/.zshrc
-```
-
-## 5. 테마 선택
-
-iterm2 프롬프트에는 [다양한 테마](https://github.com/ohmyzsh/ohmyzsh/wiki/Themes)가 존재하고 해요.
-
-가장 유명한 테마들에는 
-[powerlevel10k](https://github.com/romkatv/powerlevel10k), 
-[spaceship](https://spaceship-prompt.sh/), 
-[pure](https://github.com/sindresorhus/pure) 등 여러 종류가 있지만 그 중 저는  성능이 가장 좋은 powerlevel10k를 사용하고 있어요.
-
-저는 powerlevel10k를 설치해서 적용해볼게요. 다른 테마들도 비슷한 방식으로 설치하고 적용하면 되요.
-
-```bash
-git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/themes/powerlevel10k
-```
-
-설치 완료 후 ~/.zshrc 파일을 열어서 ZSH_THEME 항목을 수정해요.
-
-```bash
-vi ~/.zshrc
-```
-
-아래와 같이 ZSH_THEME 부분을 수정해주세요.
-
-```bash
-# ~/.zshrc
-
-# ...
-
-ZSH_THEME=&quot;powerlevel10k/powerlevel10k&quot;
-
-# ...
-```
-
-수정 완료 후에는 아래와 같이 수정 내용을 적용해주세요.
-
-```bash
-source ~/.zshrc
-```
-
-위 명령어를 실행한 후 새로 탭을 열면, 대화형 설정창이 뜨고 상세하게 테마를 설정할 수 있어요. 
-
-만약, 다시 설정하고 싶으면 p10k configure를 입력해주세요.
-
----
-
-## 정리하며
-
-오늘은 iTerm2 앱 설치와 알록달록한 테마와 편리한 플러그인들을 추가하는 방법에 대해 알아봤어요.
-
-제가 사용하고 있는 것들이라 100% 강추하는 것들이어서 여러분들한테도 도움이 됐으면 좋겠어요.
-
-다들 iTerm 잘 사용하시고 조금씩 원하는 방향으로 튜닝하시는 걸 추천드려요.</content:encoded></item><item><title><![CDATA[[macOS] m1 homebrew 설치하기]]></title><description><![CDATA[인텔 맥과 다르게 m1 이상의 맥은 homebrew 설치 과정이 조금 추가되는데요. 오늘은 m1 맥에서 homebrew를 설치하는 방법에 대해 알아보도록 해요.
+그럼 아래와 같은 창이 나오는데 터미널에 표시됐으면…</content:encoded></item><item><title><![CDATA[[macOS] m1 homebrew 설치하기]]></title><description><![CDATA[인텔 맥과 다르게 m1 이상의 맥은 homebrew 설치 과정이 조금 추가되는데요. 오늘은 m1 맥에서 homebrew를 설치하는 방법에 대해 알아보도록 해요.]]></description><link>https://classic-95.com/posts/2023/09/install-homebrew/</link><guid isPermaLink="false">https://classic-95.com/posts/2023/09/install-homebrew/</guid><pubDate>Fri, 01 Sep 2023 21:42:15 GMT</pubDate><content:encoded>인텔 맥과 다르게 m1 이상의 맥은 homebrew 설치 과정이 조금 추가되는데요. 오늘은 m1 맥에서 homebrew를 설치하는 방법에 대해 알아보도록 해요.
 
 1. homebrew 설치
 
 터미널을 열어서 아래의 명령어를 실행시켜요.
 
-/bin/bash…]]></description><link>https://classic-95.com/posts/2023/09/install-homebrew/</link><guid isPermaLink="false">https://classic-95.com/posts/2023/09/install-homebrew/</guid><pubDate>Fri, 01 Sep 2023 21:42:15 GMT</pubDate><content:encoded>
-인텔 맥과 다르게 m1 이상의 맥은 homebrew 설치 과정이 조금 추가되는데요.
-
-오늘은 m1 맥에서 homebrew를 설치하는 방법에 대해 알아보도록 해요.
-
----
-
-## 1. homebrew 설치
-
-터미널을 열어서 아래의 명령어를 실행시켜요.
-
-```bash
 /bin/bash -c &quot;$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)&quot;
-```
 
-## 2. homebrew 설치 확인
-
-```bash
+2. homebrew 설치 확인
 brew --version
 # zsh: command not found: brew
-```
+
 
 인텔 mac의 경우 설치가 완료된 것이니 여기서 버전이 나오고 brew 명령어를 이용해서 사용하세요!
 
@@ -841,39 +209,14 @@ m1 mac의 경우 설치가 완료되고 확인을 위해 brew --version 명령�
 
 이 문구가 뜨는 이유는 간단해요. homebrew의 실행 파일의 위치를 path에 설정해두지 않아서 그런 거에요.
 
-## 3. homebrew path 설정
+3. homebrew path 설정
 
-잠시 터미널의 스크롤을 올려서 homebrew가 설치된 직후의 response 코드들 볼게요.
-보면 아래와 같이 Next steps에 대해 친절하게 알려주는데 이게 homebrew의 path를 설정하는 방법이에요.
+잠시 터미널의 스크롤을 올려서 homebrew가 설치된 직후의 response 코드들 볼게요. 보면 아래와 같이 Next steps에 대해 친절하게 알려주는데 이게 homebrew의 path를 설정하는 방법이에요.
 
-```bash
 ==&gt; Next steps:
 - Run these three commands in your terminal to add Homebrew to your PATH:
     echo &apos;# Set PATH, MANPATH, etc., for Homebrew.&apos; &gt;&gt; /Users/{your user name}/.zprofile
     echo &apos;eval &quot;$(/opt/homebrew/bin/brew shellenv)&quot;&apos; &gt;&gt; /Users/{your user name}/.zprofile
     eval &quot;$(/opt/homebrew/bin/brew shellenv)&quot;
 - Run brew help to get started
-- Further documentation:
-    https://docs.brew.sh
-```
-
-똑같이 따라해볼까요?
-
-아래의 코드들을 복사해서 터미널에 붙여넣으시면 되는데 {&quot;{your user name}&quot;} 부분에 여러분의 맥에 등록되어있는 폴더명을 입력하시면 되요.
-
-```bash
-echo &apos;# Set PATH, MANPATH, etc., for Homebrew.&apos; &gt;&gt; /Users/{your user name}/.zprofile
-echo &apos;eval &quot;$(/opt/homebrew/bin/brew shellenv)&quot;&apos; &gt;&gt; /Users/{your user name}/.zprofile
-eval &quot;$(/opt/homebrew/bin/brew shellenv)&quot;
-```
-
-## 4. homebrew 설치 완료
-
-이후 다시 brew --version 명령어를 입력하면 아래와 같이 설치하신 homebrew의 버전을 보실 수 있어요.
-
-이제 brew를 마음껏 사용하세요!
-
-```bash
-brew --version
-# Homebrew 4.1.11
-```</content:encoded></item></channel></rss>
+-…</content:encoded></item></channel></rss>
