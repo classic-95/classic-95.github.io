@@ -6,11 +6,12 @@ export const onCreateNode: GatsbyNode["onCreateNode"] = async ({ actions, node, 
 	const { createNodeField } = actions;
 
 	if (node.internal.type === "Mdx") {
-		const slug = createFilePath({ node, getNode, basePath: "" });
+		const slug = createFilePath({ node, getNode, basePath: "" }).replace("/ko/", "/");
+		const isEn = slug.includes("/en/");
 		createNodeField({
 			name: "slug",
 			node,
-			value: `/posts${slug}`,
+			value: `${isEn ? "/en" : ""}/posts${slug.replace("/en/", "/")}`,
 		});
 	}
 };
@@ -36,7 +37,7 @@ export const createPages: GatsbyNode["createPages"] = async ({ actions, graphql,
 
 	const result = await graphql<QueryType>(`
 		{
-			allMdx {
+			allMdx(filter: { frontmatter: { is_private: { eq: false } } }) {
 				nodes {
 					id
 					fields {

@@ -1,0 +1,72 @@
+---
+author: Classic95
+title: "[macOS] Install m1 homebrew"
+thumbnail: "../../../../images/logos/homebrew.png"
+created_at: 2023-11-03T21:42:15+09:00
+is_private: false
+description: "Unlike Intel Macs, Macs with m1 or higher require a slightly additional homebrew installation process. Today we will learn how to install homebrew on an m1 Mac."
+---
+
+Unlike Intel Macs, Macs with m1 or higher require a slightly additional homebrew installation process. 
+
+Today we will learn how to install homebrew on an m1 Mac.
+
+---
+
+## 1. Install homebrew
+
+Open a terminal and run the command below.
+
+```bash
+/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+```
+
+## 2. Verify homebrew installation
+
+```bash
+brew --version
+# zsh: command not found: brew
+```
+
+For Intel Macs, the installation is complete, so you can find the version here and use the brew command!
+
+In the case of m1 Mac, when the installation is completed and you enter the brew --version command to check, the message zsh: command not found: brew appears as shown below.
+
+The reason this phrase appears is simple. This is because the location of the homebrew executable file is not set in the path.
+
+## 3. Set homebrew path
+
+Let's scroll up the terminal for a moment and see the response codes immediately after homebrew is installed.
+If you look at it, it kindly tells you about the next steps as shown below, which is how to set the homebrew path.
+
+```bash
+==> Next steps:
+- Run these three commands in your terminal to add Homebrew to your PATH:
+    echo '# Set PATH, MANPATH, etc., for Homebrew.' >> /Users/{your user name}/.zprofile
+    echo 'eval "$(/opt/homebrew/bin/brew shellenv)"' >> /Users/{your user name}/.zprofile
+    eval "$(/opt/homebrew/bin/brew shellenv)"
+- Run brew help to get started
+- Further documentation:
+    https://docs.brew.sh
+```
+
+Shall we follow the same example?
+
+Copy the codes below and paste them into the terminal. In the {"{your user name}"} section, enter the folder name registered on your Mac.
+
+```bash
+echo '# Set PATH, MANPATH, etc., for Homebrew.' >> /Users/{your user name}/.zprofile
+echo 'eval "$(/opt/homebrew/bin/brew shellenv)"' >> /Users/{your user name}/.zprofile
+eval "$(/opt/homebrew/bin/brew shellenv)"
+```
+
+## 4. Homebrew installation complete
+
+If you then enter the brew --version command again, you can see the version of homebrew you installed as shown below.
+
+Now you can use brew to your heart's content!
+
+```bash
+brew --version
+# Homebrew 4.1.11
+```

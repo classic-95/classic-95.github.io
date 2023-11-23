@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useMemo } from "react";
 import { HeadProps, PageProps, graphql } from "gatsby";
 import styled from "styled-components";
 import { MDXProvider } from "@mdx-js/react";
@@ -7,10 +7,12 @@ import dateFormatter from "../../libs/formatter";
 import media from "../../libs/styles/media";
 import palette from "../../libs/styles/palette";
 import CodeBlock from "../common/CodeBlock";
-import CommonPageContainer from "../common/CommonPageContainer";
 import SEO from "../common/SEO";
 import Utterances from "../common/Utterances";
-import CommonHeader from "../header/CommonHeader";
+
+const Container = styled.div`
+	width: 100%;
+`;
 
 const BodyContainer = styled.div`
 	width: 100%;
@@ -50,6 +52,7 @@ const TitleLabel = styled.h1`
 const DateContainer = styled.div`
 	margin-bottom: 12px;
 	time {
+		display: block;
 		color: ${palette.gray[6]};
 		font-size: 0.8em;
 	}
@@ -179,10 +182,14 @@ type QueryType = {
 	};
 };
 
-export default function PostTemplate({ data, children }: PageProps<QueryType>) {
+export default function PostTemplate({ data, children, location }: PageProps<QueryType>) {
+	const lang = useMemo(
+		() => (location.pathname.includes("/en/") ? "en" : "ko"),
+		[location.pathname],
+	);
+
 	return (
-		<CommonPageContainer>
-			<CommonHeader />
+		<Container>
 			<BodyContainer>
 				<ContentContainer>
 					{/* {data.mdx.frontmatter.category !== undefined && (
@@ -191,11 +198,12 @@ export default function PostTemplate({ data, children }: PageProps<QueryType>) {
 					<TitleLabel>{data.mdx.frontmatter.title}</TitleLabel>
 					<DateContainer>
 						<time dateTime={data.mdx.frontmatter.created_at}>
-							게시: {dateFormatter(data.mdx.frontmatter.created_at)}
+							{dateFormatter(data.mdx.frontmatter.created_at)}
 						</time>
 						{data.mdx.frontmatter.updated_at && (
 							<time dateTime={data.mdx.frontmatter.updated_at}>
-								수정: {dateFormatter(data.mdx.frontmatter.updated_at)}
+								{lang === "ko" ? "수정: " : "edited at "}
+								{dateFormatter(data.mdx.frontmatter.updated_at)}
 							</time>
 						)}
 					</DateContainer>
@@ -207,7 +215,7 @@ export default function PostTemplate({ data, children }: PageProps<QueryType>) {
 			<FooterContainer>
 				<Utterances />
 			</FooterContainer>
-		</CommonPageContainer>
+		</Container>
 	);
 }
 

@@ -1,8 +1,8 @@
 /* eslint-disable import/no-extraneous-dependencies */
 /* eslint-disable react/no-array-index-key */
 import React from "react";
-import styled from "styled-components";
 import { Highlight, Prism, themes } from "prism-react-renderer";
+import styled from "styled-components";
 import palette from "../../libs/styles/palette";
 
 (typeof global !== "undefined" ? global : window).Prism = Prism;
@@ -10,6 +10,7 @@ await import("prismjs/components/prism-bash");
 await import("prismjs/components/prism-python");
 await import("prismjs/components/prism-java");
 await import("prismjs/components/prism-diff");
+await import("prismjs/components/prism-markdown");
 
 const Pre = styled.div`
 	text-align: left;
@@ -49,6 +50,7 @@ const CodeBlock = (
 ) => {
 	const matches = (props!.className || "").match(/language-(?<lang>.*)/);
 
+	if (!matches) return null;
 	return (
 		<Highlight
 			code={((props.children || "") as string).trim()}

@@ -1,0 +1,322 @@
+---
+author: Classic95
+title: "[react-native] Start screen transition with react-navigation"
+thumbnail: "../../../../images/logos/react-native.png"
+created_at: 2023-11-11T19:22:28+09:00
+is_private: false
+description: "Let's learn about screen transitions in react-native using the react-navigation open source."
+---
+
+import img1 from "../../../../images/2023/09/navigation-1-0.webp";
+import img2 from "../../../../images/2023/09/navigation-1-1.webp";
+
+Today, let's learn about screen transitions in react-native using react-navigation open source.
+
+First, you can follow it more easily if you turn on [the official Document](https://reactnavigation.org/docs/getting-started/). 
+It's nice that blog posts are simply organized, but it's a good idea to always get into the habit of reading official documents.
+
+---
+
+## 1. Create a project
+
+First, let's create a project.
+
+Open the terminal on Mac or cmd on Windows to create a react-native project.
+
+I will create a react-native project named navigation.
+
+```bash
+# npx react-native init {your project name}
+npx react-native init navigation
+```
+
+ ## 2. Install react-navigation
+
+Let's install react-navigation along with the dependencies as stated in the official document.
+
+ ```bash
+ # cd {your project name}
+ cd navigation
+
+ # react-navigation/native and react-navigation/stack 
+ # dependencies(react-native-screens, react-native-safe-area-context) of react-navigation/native
+ # dependency(react-native-gesture-handler) of react-navigation/stack
+ yarn add @react-navigation/native @react-navigation/stack react-native-screens react-native-safe-area-context react-native-gesture-handler
+ ```
+
+ ### 2-1. ios additional actions
+
+iOS additional work For iOS, you need to perform a pod install to connect the modules you just installed.
+
+ ```bash
+ cd ios
+ pod install
+ cd ..
+ ```
+
+### 2-2. android additional actions
+
+For Android, you need to add the code below in \"{"android/app/src/main/java/<project name>/MainActivity.java"}\".
+
+If you do not add the code below, an abnormal termination may occur when the app switches from the background to the foreground.
+
+```java
+// android/app/src/main/java/<your project name>/MainActivity.java
+
+public class MainActivity extends ReactActivity {
+  // ...
+  @Override
+  protected void onCreate(Bundle savedInstanceState) {
+    super.onCreate(null);
+  }
+  // ...
+}
+```
+
+### 2-3. ios, android common tasks
+
+Import react-native-gesture-handler, a dependency of @react-navigation/stack, from index.js.
+
+Otherwise, errors may occur during building or problems may occur when switching screens.
+
+```js 
+// index.js
+
+// ...
+- import 'react-native-gesture-handler';
+// ...
+```
+
+## 3. Create a test screen
+
+The test screen will be structured as follows.
+
+After creating the src/screens folder, move App.tsx that was previously in the root directory.
+
+Likewise, create Navigator.tsx, Screen1.tsx, and Screen2.tsx files in the src/screens folder.
+
+Also, create a Navigation.ts file to declare the type of navigation after creating the types folder.
+
+```
+📦src
+ ┣ 📂screens
+ ┃ ┣ 📜App.tsx
+ ┃ ┣ 📜Navigator.tsx
+ ┃ ┣ 📜Screen1.tsx
+ ┃ ┗ 📜Screen2.tsx
+ ┗ 📂types
+ ┃ ┗ 📜Navigation.ts
+```
+
+### 3-1. Navigation.ts
+
+Before writing any other code, specify the types of screens that exist in Naivgation.
+
+Since we only have Screen1 and Screen2, we set the type as follows.
+
+The undefined value of Screen1: and Screen2: means that the type required to display each screen does not exist.
+
+I will explain this further in the next post, but will move on for now.
+
+```ts
+// src/types/Navigation.ts
+
+export type NaviParamList = {
+	Screen1: undefined;
+	Screen2: undefined;
+};
+```
+
+### 3-2. Screen1.tsx
+
+There is nothing very difficult, but to add an explanation, in [3-1 above](/en/posts/2023/09/react-native-react-navigation-1/#3-1-navigationts), 
+declare NavigationProp by specifying the declared NaviParamList and the current screen name.
+
+After that, create a navigation variable that uses the NavigationProp type declared through the useNavigation hook.
+
+Attach an onPress event to the Move to Screen-2 button to execute the function to move to Screen-2.
+
+<img src={img1} style={{width: 250, margin: "auto", display: "block", marginBottom: 20}} alt="react-native navigation screen1" />
+
+```tsx
+// src/screens/Screen1.tsx
+
+import { StackNavigationProp } from '@react-navigation/stack';
+import React from 'react';
+import { StyleSheet, Text, TouchableOpacity, View } from 'react-native';
+import { NaviParamList } from '../types/Navigation';
+import { useNavigation } from '@react-navigation/native';
+
+const styles = StyleSheet.create({
+	container: {
+		flex: 1,
+		alignItems: 'center',
+		justifyContent: 'center',
+	},
+	button: {
+		padding: 10,
+		backgroundColor: 'black',
+	},
+	buttonLabel: {
+		color: 'white',
+	},
+});
+
+type NavigationProp = StackNavigationProp<NaviParamList, 'Screen1'>;
+
+export default function Screen1() {
+	const navigation = useNavigation<NavigationProp>();
+
+	return (
+		<View style={styles.container}>
+			<TouchableOpacity style={styles.button} onPress={() => navigation.navigate('Screen2')}>
+				<Text style={styles.buttonLabel}>Screen-2로 이동</Text>
+			</TouchableOpacity>
+		</View>
+	);
+}
+
+```
+
+### 3-3. Screen2.tsx
+
+It is the same as [Screen](/en/posts/2023/09/react-native-react-navigation-1/#3-2-screen1tsx) 1 above.
+
+<img src={img2} style={{width: 250, margin: "auto", display: "block", marginBottom: 20}} alt="react-native navigation screen2"/>
+
+```tsx
+// src/screens/Screen2.tsx
+
+import { StackNavigationProp } from '@react-navigation/stack';
+import React from 'react';
+import { StyleSheet, Text, TouchableOpacity, View } from 'react-native';
+import { NaviParamList } from '../types/Navigation';
+import { useNavigation } from '@react-navigation/native';
+
+const styles = StyleSheet.create({
+	container: {
+		flex: 1,
+		alignItems: 'center',
+		justifyContent: 'center',
+	},
+	button: {
+		padding: 10,
+		backgroundColor: 'black',
+	},
+	buttonLabel: {
+		color: 'white',
+	},
+});
+
+type NavigationProp = StackNavigationProp<NaviParamList, 'Screen2'>;
+
+export default function Screen2() {
+	const navigation = useNavigation<NavigationProp>();
+
+	return (
+		<View style={styles.container}>
+			<TouchableOpacity style={styles.button} onPress={() => navigation.navigate('Screen1')}>
+				<Text style={styles.buttonLabel}>Screen-1로 이동</Text>
+			</TouchableOpacity>
+		</View>
+	);
+}
+```
+
+### 3-4. Navigator.tsx
+
+Now we need to create a navigator to connect Screen1 and Screen2 created above, right?
+
+First, create a Stack object using createStackNavigator.
+
+After that, enter the screens you want to include like the code below.
+
+```tsx
+// src/screens/Navigator.tsx
+
+import React from 'react';
+import { createStackNavigator } from '@react-navigation/stack';
+import { NaviParamList } from '../types/Navigation';
+import Screen1 from './Screen1';
+import Screen2 from './Screen2';
+
+const Stack = createStackNavigator<NaviParamList>();
+
+export default function Navigator() {
+	return (
+		<Stack.Navigator>
+			<Stack.Screen name="Screen1" component={Screen1} />
+			<Stack.Screen name="Screen2" component={Screen2} />
+		</Stack.Navigator>
+	);
+}
+```
+
+### 3-5. Edit App.tsx
+
+Now, after deleting all the basic codes in App.tsx, 
+wrap the Navigator created above with NavigationContainer as shown in the code below.
+
+```tsx
+// src/screens/App.tsx
+
+import { NavigationContainer } from '@react-navigation/native';
+import React from 'react';
+import Navigator from './Navigator';
+
+export default function App() {
+	return (
+		<NavigationContainer>
+			<Navigator />
+		</NavigationContainer>
+	);
+}
+```
+
+### 3-6. Edit index.js
+
+Lastly, just edit the App.tsx import path in index.js and you're done!
+
+```diff
+// ...
+
+- import App from './App';
++ import App from './src/screens/App';
+
+// ...
+```
+
+## 4. Run proejct
+
+Now check whether the code written above works well.
+
+It'll probably work fine.
+
+Since version 0.7 of react-native, an error may occur while running a newly created project.
+
+The message \"launchPackager.command\" can't be opened appears.
+
+In this case, please check [this post](/en/posts/2023/09/react-native-launch-packager-command-cant-be-opened) for a solution.
+
+```bash
+# ios test
+yarn ios
+
+# android test
+yarn android
+```
+
+---
+
+## Whole Code
+
+[https://github.com/classic-95/react-navigation-practice/tree/main/navigation-1](https://github.com/classic-95/react-navigation-practice/tree/main/navigation-1)
+
+---
+
+## Organizing
+
+Today, we learned how to switch screens using react-navigation by writing simple code.
+
+In the next post, what are the situations in which screen transition functions such as navigate, push, and replace of react-navigation are used?
+Let's find out how to use it.

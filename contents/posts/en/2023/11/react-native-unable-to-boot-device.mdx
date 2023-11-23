@@ -1,0 +1,50 @@
+---
+author: Classic95
+title: "[react-native] Solve ios simulator unable to boot device in current state: Booted error"
+thumbnail: "../../../../images/logos/react-native.png"
+created_at: 2023-11-12T23:11:15+09:00
+is_private: false
+description: "Today, we will learn how to resolve the unable to boot device in current state: Booted error that often occurs when running the iOS simulator in react-native."
+---
+
+import img1 from "../../../../images/2023/09/boot-1.webp";
+
+![ios simulator Unable to boot device in current state: Booted](../../../../images/2023/09/boot-0.webp)
+
+Today, we will learn how to resolve the unable to boot device in current state: Booted error that often occurs when running the iOS simulator in react-native.
+
+To find out why the error occurs, the simulator is running.
+
+Now, let’s find out how to solve it.
+
+---
+
+## 1. Resolution
+
+### 1-1. Open ios simulator settings
+
+With the iOS simulator turned on, click Simulator -> Settings... in the menu bar at the top left, as shown in the image below.
+
+Or, while turning on the simulator, press (⌘ + ,) together.
+
+<img src={img1} style={{width: 250, margin: "auto", display: "block", marginBottom: 20}} alt="ios simulator settings" />
+
+### 1-2. Change Simulator lifetime
+
+As shown in the image below, uncheck \"When Simulator starts boot the most recently used simulator\" in the Simulator lifetime section.
+
+![ios simulator lifetime \"When Simulator starts boot the most recently used simulator\"](../../../../images/2023/09/boot-2.webp)
+
+---
+
+## References
+
+- [stack overflow](https://stackoverflow.com/questions/24135067/unable-to-boot-device-in-current-state-booted/71249396#71249396)
+
+---
+
+## Organizing
+
+Today, we learned how to resolve the unable to boot device in current state: Booted error that often occurs when running the iOS simulator in react-native.
+
+If you follow along with the images, you can solve the problem without much difficulty, so I hope you can solve it by following it step by step.

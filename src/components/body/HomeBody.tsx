@@ -1,8 +1,9 @@
-import React from "react";
+import React, { useMemo } from "react";
 import { graphql, useStaticQuery } from "gatsby";
 import { IGatsbyImageData } from "gatsby-plugin-image";
 import styled from "styled-components";
 import media from "../../libs/styles/media";
+import { LanguageType } from "../../types/Common";
 import HomePostItem from "./HomePostItem";
 
 const Container = styled.div`
@@ -25,6 +26,10 @@ const InnerContainer = styled.div`
 	}
 `;
 
+interface Props {
+	lang: LanguageType;
+}
+
 type QueryType = {
 	allMdx: {
 		nodes: {
@@ -42,13 +47,17 @@ type QueryType = {
 				title: string;
 			};
 		}[];
-	};
+	} | null;
 };
 
-export default function HomeBody() {
+export default function HomeBody({ lang }: Props) {
 	const data = useStaticQuery<QueryType>(graphql`
 		query AllMdx {
-			allMdx(sort: { frontmatter: { created_at: DESC } }, limit: 100) {
+			allMdx(
+				filter: { frontmatter: { is_private: { eq: false } } }
+				sort: { frontmatter: { created_at: DESC } }
+				limit: 100
+			) {
 				nodes {
 					fields {
 						slug
@@ -67,11 +76,20 @@ export default function HomeBody() {
 			}
 		}
 	`);
+	const nodes = useMemo(
+		() =>
+			data.allMdx
+				? data.allMdx.nodes.filter((node) =>
+						node.fields.slug.includes("/en/") ? lang === "en" : lang === "ko",
+				  )
+				: [],
+		[data.allMdx, lang],
+	);
 
 	return (
 		<Container>
 			<InnerContainer>
-				{data.allMdx.nodes.map((node) => (
+				{nodes.map((node) => (
 					<HomePostItem
 						key={node.fields.slug}
 						slug={node.fields.slug}

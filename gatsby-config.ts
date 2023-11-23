@@ -60,6 +60,7 @@ const config: GatsbyConfig = {
 						query: `
 						  	{
 								allMdx(
+									filter: {frontmatter: {is_private: {eq: false}}}
 									sort: {frontmatter: {created_at: DESC}}
 									limit: 1000
 								) {

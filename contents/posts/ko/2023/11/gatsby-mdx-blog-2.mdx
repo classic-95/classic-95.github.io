@@ -1,0 +1,35 @@
+---
+author: "Classic95"
+title: "[gatsby] mdx 문법 -2"
+thumbnail: "../../../../images/logos/gatsby.jpg"
+created_at: 2023-11-22T18:32:21+09:00
+is_private: true
+description: "gatsby 프레임워크의 mdx 형식으로 쓴 글을 화면에 렌더링 시켜봐요."
+---
+
+오늘은 [지난 번에 만든 gatsby 프로젝트](/posts/2023/09/gatsby-mdx-blog-1/)에 mdx 파일로 글을 써서 렌더링 시켜볼거에요.
+
+우리의 목표는 블로그를 만드는 것이니까 가장 중요한 건 글을 잘 렌더링 시키는 거겠죠?
+
+---
+
+## 1. gatsby-config.ts 수정
+
+일단 글을 쓰기 앞서서 gatsby-config.ts 파일을 수정해서 파일을 생성하고 저장하는 위치를 변경해줄거에요.
+
+gatsby 프로젝트를 생성하자 마자 자동으로 설정된 위치는 `src/pages/` 폴더에요
+
+src 폴더는 source 폴더의 약자로 개발에 필요한 소스 코드를 저장하는 공간이에요. 
+그래서 개인적으로 소스 코드 또는 코딩에 필요한 데이터 이외의 것은 src 폴더에 들어가지 않는 걸 선호해요.
+
+```md
+---
+author: "Classic95"
+title: "[gatsby] mdx 기반 블로그 만들기-2"
+thumbnail: "../../../../images/logos/gatsby.jpg"
+created_at: 2023-11-22T18:32:21+09:00
+description: "gatsby 프레임워크의 mdx 형식으로 쓴 글을 화면에 렌더링 시켜봐요."
+---
+```
+
+---

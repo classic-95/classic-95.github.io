@@ -1,9 +1,9 @@
 import React from "react";
-import HomeBody from "../components/body/HomeBody";
-import SEO from "../components/common/SEO";
+import HomeBody from "../../components/body/HomeBody";
+import SEO from "../../components/common/SEO";
 
 export default function HomePage() {
-	return <HomeBody lang="ko" />;
+	return <HomeBody lang="en" />;
 }
 
 export const Head = () => <SEO title="Classic95의 블로그" />;
