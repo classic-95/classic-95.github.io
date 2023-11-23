@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Classic95의 블로그]]></title><description><![CDATA[누구나 쉽게 따라할 수 있는, 남녀노소 모두를 위한 개발 블로그]]></description><link>https://classic-95.com?utm_source=blog-feed&amp;utm_medium=feed&amp;utm_campaign=feed</link><generator>GatsbyJS</generator><lastBuildDate>Thu, 23 Nov 2023 03:14:30 GMT</lastBuildDate><item><title><![CDATA[[gatsby] Creating an mdx based blog-1]]></title><description><![CDATA[Let's create a blog based on mdx of the gatsby framework.]]></description><link>https://classic-95.com/en/posts/2023/09/gatsby-mdx-blog-1/</link><guid isPermaLink="false">https://classic-95.com/en/posts/2023/09/gatsby-mdx-blog-1/</guid><pubDate>Mon, 13 Nov 2023 04:12:31 GMT</pubDate><content:encoded>There are three main frameworks that are most popular when creating markdown, md, or mdx-based blogs. Those are jekyll, Hugo, and Gatsby.
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Classic95의 블로그]]></title><description><![CDATA[누구나 쉽게 따라할 수 있는, 남녀노소 모두를 위한 개발 블로그]]></description><link>https://classic-95.com?utm_source=blog-feed&amp;utm_medium=feed&amp;utm_campaign=feed</link><generator>GatsbyJS</generator><lastBuildDate>Thu, 23 Nov 2023 03:19:11 GMT</lastBuildDate><item><title><![CDATA[[gatsby] Creating an mdx based blog-1]]></title><description><![CDATA[Let's create a blog based on mdx of the gatsby framework.]]></description><link>https://classic-95.com/en/posts/2023/11/gatsby-mdx-blog-1/</link><guid isPermaLink="false">https://classic-95.com/en/posts/2023/11/gatsby-mdx-blog-1/</guid><pubDate>Mon, 13 Nov 2023 04:12:31 GMT</pubDate><content:encoded>There are three main frameworks that are most popular when creating markdown, md, or mdx-based blogs. Those are jekyll, Hugo, and Gatsby.
 
 Among them, today we will learn how to create a blog using Gatsby.
 
@@ -23,7 +23,7 @@ When the terminal asks you to agree to the software license, agree and proceed.
 xcode-select --install
 
 
-Afte…</content:encoded></item><item><title><![CDATA[[react-native] Solve ios simulator unable to boot device in current state: Booted error]]></title><description><![CDATA[Today, we will learn how to resolve the unable to boot device in current state: Booted error that often occurs when running the iOS simulator in react-native.]]></description><link>https://classic-95.com/en/posts/2023/09/react-native-unable-to-boot-device/</link><guid isPermaLink="false">https://classic-95.com/en/posts/2023/09/react-native-unable-to-boot-device/</guid><pubDate>Sat, 04 Nov 2023 02:05:20 GMT</pubDate><content:encoded>Today, we will learn how to resolve the unable to boot device in current state: Booted error that often occurs when running the iOS simulator in react-native. To find out why the error occurs, the simulator is running.
+Afte…</content:encoded></item><item><title><![CDATA[[react-native] Solve ios simulator unable to boot device in current state: Booted error]]></title><description><![CDATA[Today, we will learn how to resolve the unable to boot device in current state: Booted error that often occurs when running the iOS simulator in react-native.]]></description><link>https://classic-95.com/en/posts/2023/11/react-native-unable-to-boot-device/</link><guid isPermaLink="false">https://classic-95.com/en/posts/2023/11/react-native-unable-to-boot-device/</guid><pubDate>Sun, 12 Nov 2023 14:11:15 GMT</pubDate><content:encoded>Today, we will learn how to resolve the unable to boot device in current state: Booted error that often occurs when running the iOS simulator in react-native. To find out why the error occurs, the simulator is running.
 
 Now, let’s find out how to solve it.
 
@@ -44,7 +44,101 @@ Organizing
 
 Today, we learned how to resolve the unable to boot device in current state: Booted error that often occurs when running the iOS simulator in react-native.
 
-If you follow along with the images, you can solve the problem without much difficulty, so I hope you can solve it by following it step by step…</content:encoded></item><item><title><![CDATA[[gatsby] mdx 기반 블로그 만들기-1]]></title><description><![CDATA[gatsby 프레임워크의 mdx 기반 블로그를 만들어봐요.]]></description><link>https://classic-95.com/posts/2023/09/gatsby-mdx-blog-1/</link><guid isPermaLink="false">https://classic-95.com/posts/2023/09/gatsby-mdx-blog-1/</guid><pubDate>Fri, 08 Sep 2023 13:00:00 GMT</pubDate><content:encoded>markdown, md 또는 mdx 기반의 블로그를 만들 때 가장 많은 선택을 받는 프레임워크들은 크게 세 가지가 있죠. 바로 jekyll, Hugo, Gatsby인데요.
+If you follow along with the images, you can solve the problem without much difficulty, so I hope you can solve it by following it step by step…</content:encoded></item><item><title><![CDATA[[react-native] Start screen transition with react-navigation]]></title><description><![CDATA[Let's learn about screen transitions in react-native using the react-navigation open source.]]></description><link>https://classic-95.com/en/posts/2023/11/react-native-react-navigation-1/</link><guid isPermaLink="false">https://classic-95.com/en/posts/2023/11/react-native-react-navigation-1/</guid><pubDate>Sat, 11 Nov 2023 10:22:28 GMT</pubDate><content:encoded>Today, let&apos;s learn about screen transitions in react-native using react-navigation open source. First, you can follow it more easily if you turn on the official Document. It&apos;s nice that blog posts are simply organized, but it&apos;s a good idea to always get into the habit of reading official documents.
+
+1. Create a project
+
+First, let&apos;s create a project.
+
+Open the terminal on Mac or cmd on Windows to create a react-native project.
+
+I will create a react-native project named navigation.
+
+# npx react-native init {your project name}
+npx react-native init navigation
+
+2. Install react-navigation
+
+Let&apos;s install react-navigation along with the dependencies as stated in the official document.
+
+# cd {your project name}
+cd navigation
+
+# react-navigation/native and react-navigation/stack 
+# dependencies(react-native-screens, react-native-safe-area-context) of react-navigation/native
+# dependency(react-native-gesture-handler) of react-navigation/stack
+yarn add @react-navigation/native @react-navigation…</content:encoded></item><item><title><![CDATA[[react-native] Solve "launchPackager.command" can't be opened issue]]></title><description><![CDATA[Let's solve the "launchPackager.command" can't be opened ios simulator execution error that occurs after creating a new project in react-native 0.7 or later.]]></description><link>https://classic-95.com/en/posts/2023/11/react-native-launch-packager-command-cant-be-opened/</link><guid isPermaLink="false">https://classic-95.com/en/posts/2023/11/react-native-launch-packager-command-cant-be-opened/</guid><pubDate>Mon, 06 Nov 2023 05:21:52 GMT</pubDate><content:encoded>Today, let&apos;s learn how to resolve the &quot;launchPackager.command&quot; can&apos;t be opened error that occurs when running the iOS simulator after react-native version 0.7. To find out why the error occurs, the problem occurs because you need to run a terminal to run the simulator, but the relevant permissions do not exist.
+
+Now, let’s find out how to solve it.
+
+1. Resolution
+1-1. Open node_modules folder inside your project
+
+Open the current project folder and open the node_modules folder.
+
+1-2. Open react-native folder inside node_modules
+
+Find and open the react-native folder inside the node_modules folder.
+
+1-3. Open scripts folder inside react-native folder
+
+Find and open the scripts folder inside ./node_modules/react-native folder.
+
+1-4. Open launchPackager.command file with other program
+
+Right-click the launchPackager.command file in the ./node_modules/react-native/scripts folder and click Open as shown in the image below.
+
+1-5. Open app with iTerm.app
+
+If you do not have iTerm2 installed…</content:encoded></item><item><title><![CDATA[[mac] Install iTerm2]]></title><description><![CDATA[Install iTemr2 on your Mac and create a colorful terminal with oh-my-zsh.]]></description><link>https://classic-95.com/en/posts/2023/11/install-iterm/</link><guid isPermaLink="false">https://classic-95.com/en/posts/2023/11/install-iterm/</guid><pubDate>Sat, 04 Nov 2023 02:32:00 GMT</pubDate><content:encoded>Install iTemr2 on your Mac and create a colorful terminal with oh-my-zsh. 1. Install iTerm2
+
+I will install it using brew.
+
+If Homebrew is not installed, please install it following this post and come back.
+
+Now, enter the command below into the terminal to install it.
+
+brew install iterm2
+
+2. Intsall oh-my-zsh
+
+To apply various themes or functions such as autocomplete in iterm2, install oh-my-zsh, one of the zsh (Z shell) plugins.
+
+sh -c &quot;$(curl -fsSL https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh)&quot;
+
+3. Change iterm color scheme and settings
+3-1. Choose a color scheme
+
+Check and download various color schemes at the official Site.
+
+Personally, I like pastel tones, so I downloaded and used the Snazzy color scheme below.
+
+If you download any theme, double-click it and it will automatically be added to iTerm2&apos;s iTerm Color Preset.
+
+To check, run iTerm2 and press (⌘ + ,) together.
+
+Then, in the window shown below, select Profile -&gt; Colors -&gt; Color…</content:encoded></item><item><title><![CDATA[[macOS] Install m1 homebrew]]></title><description><![CDATA[Unlike Intel Macs, Macs with m1 or higher require a slightly additional homebrew installation process. Today we will learn how to install homebrew on an m1 Mac.]]></description><link>https://classic-95.com/en/posts/2023/11/install-homebrew/</link><guid isPermaLink="false">https://classic-95.com/en/posts/2023/11/install-homebrew/</guid><pubDate>Fri, 03 Nov 2023 12:42:15 GMT</pubDate><content:encoded>Unlike Intel Macs, Macs with m1 or higher require a slightly additional homebrew installation process. Today we will learn how to install homebrew on an m1 Mac.
+
+1. Install homebrew
+
+Open a terminal and run the command below.
+
+/bin/bash -c &quot;$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)&quot;
+
+2. Verify homebrew installation
+brew --version
+# zsh: command not found: brew
+
+
+For Intel Macs, the installation is complete, so you can find the version here and use the brew command!
+
+In the case of m1 Mac, when the installation is completed and you enter the brew --version command to check, the message zsh: command not found: brew appears as shown below.
+
+The reason this phrase appears is simple. This is because the location of the homebrew executable file is not set in the path.
+
+3. Set homebrew path
+
+Let&apos;s scroll up the terminal for a moment and see the response codes immediately after homebrew is installed. If you look at it, it kindly tells you about the next steps as…</content:encoded></item><item><title><![CDATA[[gatsby] mdx 기반 블로그 만들기-1]]></title><description><![CDATA[gatsby 프레임워크의 mdx 기반 블로그를 만들어봐요.]]></description><link>https://classic-95.com/posts/2023/09/gatsby-mdx-blog-1/</link><guid isPermaLink="false">https://classic-95.com/posts/2023/09/gatsby-mdx-blog-1/</guid><pubDate>Fri, 08 Sep 2023 13:00:00 GMT</pubDate><content:encoded>markdown, md 또는 mdx 기반의 블로그를 만들 때 가장 많은 선택을 받는 프레임워크들은 크게 세 가지가 있죠. 바로 jekyll, Hugo, Gatsby인데요.
 
 이 중 오늘은 Gatsby를 사용해서 블로그를 만드는 방법에 대해 알아보도록 해요.
 
@@ -134,30 +228,7 @@ cd ..
 
 android의 경우 &quot;&quot; 에서 아래의 코드를 추가해야해요.
 
-아래 코드를 추가하지 않으면 앱을…</content:encoded></item><item><title><![CDATA[[react-native] Start screen transition with react-navigation]]></title><description><![CDATA[Let's learn about screen transitions in react-native using the react-navigation open source.]]></description><link>https://classic-95.com/en/posts/2023/09/react-native-react-navigation-1/</link><guid isPermaLink="false">https://classic-95.com/en/posts/2023/09/react-native-react-navigation-1/</guid><pubDate>Mon, 04 Sep 2023 04:13:42 GMT</pubDate><content:encoded>Today, let&apos;s learn about screen transitions in react-native using react-navigation open source. First, you can follow it more easily if you turn on the official Document. It&apos;s nice that blog posts are simply organized, but it&apos;s a good idea to always get into the habit of reading official documents.
-
-1. Create a project
-
-First, let&apos;s create a project.
-
-Open the terminal on Mac or cmd on Windows to create a react-native project.
-
-I will create a react-native project named navigation.
-
-# npx react-native init {your project name}
-npx react-native init navigation
-
-2. Install react-navigation
-
-Let&apos;s install react-navigation along with the dependencies as stated in the official document.
-
-# cd {your project name}
-cd navigation
-
-# react-navigation/native and react-navigation/stack 
-# dependencies(react-native-screens, react-native-safe-area-context) of react-navigation/native
-# dependency(react-native-gesture-handler) of react-navigation/stack
-yarn add @react-navigation/native @react-navigation…</content:encoded></item><item><title><![CDATA[[react-native] ios simulator unable to boot device in current state: Booted 오류 해결]]></title><description><![CDATA[오늘은 react-native에서 ios simulator를 실행시킬 때 종종 발생하는 unable to boot device in current state: Booted 오류를 해결하는 방법에 대해 알아봐요.]]></description><link>https://classic-95.com/posts/2023/09/react-native-unable-to-boot-device/</link><guid isPermaLink="false">https://classic-95.com/posts/2023/09/react-native-unable-to-boot-device/</guid><pubDate>Sun, 03 Sep 2023 11:05:20 GMT</pubDate><content:encoded>오늘은 react-native에서 ios simulator를 실행시킬 때 종종 발생하는 unable to boot device in current state: Booted 오류를 해결하는 방법에 대해 알아봐요. 오류가 나는 이유부터 알아보자면 시뮬레이터가 실행 상태
+아래 코드를 추가하지 않으면 앱을…</content:encoded></item><item><title><![CDATA[[react-native] ios simulator unable to boot device in current state: Booted 오류 해결]]></title><description><![CDATA[오늘은 react-native에서 ios simulator를 실행시킬 때 종종 발생하는 unable to boot device in current state: Booted 오류를 해결하는 방법에 대해 알아봐요.]]></description><link>https://classic-95.com/posts/2023/09/react-native-unable-to-boot-device/</link><guid isPermaLink="false">https://classic-95.com/posts/2023/09/react-native-unable-to-boot-device/</guid><pubDate>Sun, 03 Sep 2023 11:05:20 GMT</pubDate><content:encoded>오늘은 react-native에서 ios simulator를 실행시킬 때 종종 발생하는 unable to boot device in current state: Booted 오류를 해결하는 방법에 대해 알아봐요. 오류가 나는 이유부터 알아보자면 시뮬레이터가 실행 상태
 
 그럼 이제 해결 방법에 대해 알아볼까요?
 
@@ -222,30 +293,7 @@ npm run ios
 
 오늘은 react-native 0.7 버전 이후에 ios 시뮬레이터를 실행시키면 발생하는 &quot;launchPackager.command&quot; can&apos;t be opened 오류를 해결하는 방법에 대해 알아봤어요.
 
-이미지와 함께 보면서 따라오면 큰…</content:encoded></item><item><title><![CDATA[[react-native] Solve "launchPackager.command" can't be opened issue]]></title><description><![CDATA[Let's solve the "launchPackager.command" can't be opened ios simulator execution error that occurs after creating a new project in react-native 0.7 or later.]]></description><link>https://classic-95.com/en/posts/2023/09/react-native-launch-packager-command-cant-be-opened/</link><guid isPermaLink="false">https://classic-95.com/en/posts/2023/09/react-native-launch-packager-command-cant-be-opened/</guid><pubDate>Sun, 03 Sep 2023 00:15:20 GMT</pubDate><content:encoded>Today, let&apos;s learn how to resolve the &quot;launchPackager.command&quot; can&apos;t be opened error that occurs when running the iOS simulator after react-native version 0.7. To find out why the error occurs, the problem occurs because you need to run a terminal to run the simulator, but the relevant permissions do not exist.
-
-Now, let’s find out how to solve it.
-
-1. Resolution
-1-1. Open node_modules folder inside your project
-
-Open the current project folder and open the node_modules folder.
-
-1-2. Open react-native folder inside node_modules
-
-Find and open the react-native folder inside the node_modules folder.
-
-1-3. Open scripts folder inside react-native folder
-
-Find and open the scripts folder inside ./node_modules/react-native folder.
-
-1-4. Open launchPackager.command file with other program
-
-Right-click the launchPackager.command file in the ./node_modules/react-native/scripts folder and click Open as shown in the image below.
-
-1-5. Open app with iTerm.app
-
-If you do not have iTerm2 installed…</content:encoded></item><item><title><![CDATA[[mac] iTerm2 설치]]></title><description><![CDATA[mac에 iTemr2를 설치하고 oh-my-zsh로 알록달록한 터미널을 만들어봐요.]]></description><link>https://classic-95.com/posts/2023/09/install-iterm/</link><guid isPermaLink="false">https://classic-95.com/posts/2023/09/install-iterm/</guid><pubDate>Sat, 02 Sep 2023 13:00:00 GMT</pubDate><content:encoded>오늘은 mac 필수 앱인 iTerm2를 설치하고 기본 터미널과 다르게 알록달록하게 테마를 적용해봐요. 1. iTerm2 설치
+이미지와 함께 보면서 따라오면 큰…</content:encoded></item><item><title><![CDATA[[mac] iTerm2 설치]]></title><description><![CDATA[mac에 iTemr2를 설치하고 oh-my-zsh로 알록달록한 터미널을 만들어봐요.]]></description><link>https://classic-95.com/posts/2023/09/install-iterm/</link><guid isPermaLink="false">https://classic-95.com/posts/2023/09/install-iterm/</guid><pubDate>Sat, 02 Sep 2023 13:00:00 GMT</pubDate><content:encoded>오늘은 mac 필수 앱인 iTerm2를 설치하고 기본 터미널과 다르게 알록달록하게 테마를 적용해봐요. 1. iTerm2 설치
 
 설치는 brew로 해줄게요.
 
@@ -284,34 +332,7 @@ sh -c &quot;$(curl -fsSL https://raw.github.com/robbyrussell/oh-my-zsh/master/to
 
 위와 같은 창에서 Profile -&gt; Session -&gt; Status bar enabled를 체크해주시고 오른쪽의 Configure Status Bar를 클릭해주세요.
 
-그럼 아래와 같은 창이 나오는데 터미널에 표시됐으면…</content:encoded></item><item><title><![CDATA[[mac] Install iTerm2]]></title><description><![CDATA[Install iTemr2 on your Mac and create a colorful terminal with oh-my-zsh.]]></description><link>https://classic-95.com/en/posts/2023/09/install-iterm/</link><guid isPermaLink="false">https://classic-95.com/en/posts/2023/09/install-iterm/</guid><pubDate>Sat, 02 Sep 2023 13:00:00 GMT</pubDate><content:encoded>Install iTemr2 on your Mac and create a colorful terminal with oh-my-zsh. 1. Install iTerm2
-
-I will install it using brew.
-
-If Homebrew is not installed, please install it following this post and come back.
-
-Now, enter the command below into the terminal to install it.
-
-brew install iterm2
-
-2. Intsall oh-my-zsh
-
-To apply various themes or functions such as autocomplete in iterm2, install oh-my-zsh, one of the zsh (Z shell) plugins.
-
-sh -c &quot;$(curl -fsSL https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh)&quot;
-
-3. Change iterm color scheme and settings
-3-1. Choose a color scheme
-
-Check and download various color schemes at the official Site.
-
-Personally, I like pastel tones, so I downloaded and used the Snazzy color scheme below.
-
-If you download any theme, double-click it and it will automatically be added to iTerm2&apos;s iTerm Color Preset.
-
-To check, run iTerm2 and press (⌘ + ,) together.
-
-Then, in the window shown below, select Profile -&gt; Colors -&gt; Color…</content:encoded></item><item><title><![CDATA[[macOS] m1 homebrew 설치하기]]></title><description><![CDATA[인텔 맥과 다르게 m1 이상의 맥은 homebrew 설치 과정이 조금 추가되는데요. 오늘은 m1 맥에서 homebrew를 설치하는 방법에 대해 알아보도록 해요.]]></description><link>https://classic-95.com/posts/2023/09/install-homebrew/</link><guid isPermaLink="false">https://classic-95.com/posts/2023/09/install-homebrew/</guid><pubDate>Fri, 01 Sep 2023 21:42:15 GMT</pubDate><content:encoded>인텔 맥과 다르게 m1 이상의 맥은 homebrew 설치 과정이 조금 추가되는데요. 오늘은 m1 맥에서 homebrew를 설치하는 방법에 대해 알아보도록 해요.
+그럼 아래와 같은 창이 나오는데 터미널에 표시됐으면…</content:encoded></item><item><title><![CDATA[[macOS] m1 homebrew 설치하기]]></title><description><![CDATA[인텔 맥과 다르게 m1 이상의 맥은 homebrew 설치 과정이 조금 추가되는데요. 오늘은 m1 맥에서 homebrew를 설치하는 방법에 대해 알아보도록 해요.]]></description><link>https://classic-95.com/posts/2023/09/install-homebrew/</link><guid isPermaLink="false">https://classic-95.com/posts/2023/09/install-homebrew/</guid><pubDate>Fri, 01 Sep 2023 21:42:15 GMT</pubDate><content:encoded>인텔 맥과 다르게 m1 이상의 맥은 homebrew 설치 과정이 조금 추가되는데요. 오늘은 m1 맥에서 homebrew를 설치하는 방법에 대해 알아보도록 해요.
 
 1. homebrew 설치
 
@@ -340,25 +361,4 @@ m1 mac의 경우 설치가 완료되고 확인을 위해 brew --version 명령�
     echo &apos;eval &quot;$(/opt/homebrew/bin/brew shellenv)&quot;&apos; &gt;&gt; /Users/{your user name}/.zprofile
     eval &quot;$(/opt/homebrew/bin/brew shellenv)&quot;
 - Run brew help to get started
--…</content:encoded></item><item><title><![CDATA[[macOS] Install m1 homebrew]]></title><description><![CDATA[Unlike Intel Macs, Macs with m1 or higher require a slightly additional homebrew installation process. Today we will learn how to install homebrew on an m1 Mac.]]></description><link>https://classic-95.com/en/posts/2023/09/install-homebrew/</link><guid isPermaLink="false">https://classic-95.com/en/posts/2023/09/install-homebrew/</guid><pubDate>Fri, 01 Sep 2023 21:42:15 GMT</pubDate><content:encoded>Unlike Intel Macs, Macs with m1 or higher require a slightly additional homebrew installation process. Today we will learn how to install homebrew on an m1 Mac.
-
-1. Install homebrew
-
-Open a terminal and run the command below.
-
-/bin/bash -c &quot;$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)&quot;
-
-2. Verify homebrew installation
-brew --version
-# zsh: command not found: brew
-
-
-For Intel Macs, the installation is complete, so you can find the version here and use the brew command!
-
-In the case of m1 Mac, when the installation is completed and you enter the brew --version command to check, the message zsh: command not found: brew appears as shown below.
-
-The reason this phrase appears is simple. This is because the location of the homebrew executable file is not set in the path.
-
-3. Set homebrew path
-
-Let&apos;s scroll up the terminal for a moment and see the response codes immediately after homebrew is installed. If you look at it, it kindly tells you about the next steps as…</content:encoded></item></channel></rss>
+-…</content:encoded></item></channel></rss>
