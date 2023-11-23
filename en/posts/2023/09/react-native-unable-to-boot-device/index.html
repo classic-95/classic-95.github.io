@@ -1,0 +1,172 @@
+<!DOCTYPE html><html><head><meta charSet="utf-8"/><meta http-equiv="x-ua-compatible" content="ie=edge"/><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/><meta name="generator" content="Gatsby 5.12.9"/><meta name="description" content="Today, we will learn how to resolve the unable to boot device in current state: Booted error that often occurs when running the iOS simulator in react-native." data-gatsby-head="true"/><meta name="twitter:url" content="https://classic-95.com/en/posts/2023/09/react-native-unable-to-boot-device/" data-gatsby-head="true"/><meta name="twitter:title" content="[react-native] Solve ios simulator unable to boot device in current state: Booted error | Classic95의 블로그" data-gatsby-head="true"/><meta name="twitter:url" content="https://classic-95.com/en/posts/2023/09/react-native-unable-to-boot-device/" data-gatsby-head="true"/><meta name="twitter:description" content="Today, we will learn how to resolve the unable to boot device in current state: Booted error that often occurs when running the iOS simulator in react-native." data-gatsby-head="true"/><meta name="twitter:card" content="summary" data-gatsby-head="true"/><meta property="twitter:image" content="https://classic-95.com/static/41ace13b6768be6622e6257e9bb0a52f/497c6/react-native.png" data-gatsby-head="true"/><meta property="og:type" content="website" data-gatsby-head="true"/><meta property="og:title" content="[react-native] Solve ios simulator unable to boot device in current state: Booted error | Classic95의 블로그" data-gatsby-head="true"/><meta property="og:description" content="Today, we will learn how to resolve the unable to boot device in current state: Booted error that often occurs when running the iOS simulator in react-native." data-gatsby-head="true"/><meta property="og:site_name" content="[react-native] Solve ios simulator unable to boot device in current state: Booted error | Classic95의 블로그" data-gatsby-head="true"/><meta property="og:image" content="https://classic-95.com/static/41ace13b6768be6622e6257e9bb0a52f/497c6/react-native.png" data-gatsby-head="true"/><meta name="robots" content="index,follow" data-gatsby-head="true"/><meta name="google-site-verification" content="2NEjQXuPpAZn1qBwWaCQCW049bja-eAPjfpGZg-aTF4" data-gatsby-head="true"/><meta name="naver-site-verification" content="c9c69a7d089e0de9420276fed17efd10e80d8dce" data-gatsby-head="true"/><style data-styled="" data-styled-version="6.1.0">.jzwdfe{max-width:860px;width:100%;margin:auto;}/*!sc*/
+data-styled.g1[id="Utterances__Container-sc-444a7q-0"]{content:"jzwdfe,"}/*!sc*/
+.gYgDAj{width:100%;}/*!sc*/
+data-styled.g6[id="PostTemplate__Container-sc-1y3rc8p-0"]{content:"gYgDAj,"}/*!sc*/
+.dGWzXm{width:100%;}/*!sc*/
+data-styled.g7[id="PostTemplate__BodyContainer-sc-1y3rc8p-1"]{content:"dGWzXm,"}/*!sc*/
+.jNPMjW{width:100%;max-width:860px;margin:auto;padding-top:78px;margin-bottom:40px;}/*!sc*/
+@media (max-width: 1199px){.jNPMjW{max-width:928px;padding:78px 34px 0;}}/*!sc*/
+@media (max-width: 767px){.jNPMjW{padding:78px 20px 0;}}/*!sc*/
+data-styled.g8[id="PostTemplate__ContentContainer-sc-1y3rc8p-2"]{content:"jNPMjW,"}/*!sc*/
+.lnNHIF{font-size:1.5em;font-weight:400;color:#7950f2;margin-bottom:10px;}/*!sc*/
+data-styled.g9[id="PostTemplate__TitleLabel-sc-1y3rc8p-3"]{content:"lnNHIF,"}/*!sc*/
+.eeXybo{margin-bottom:12px;}/*!sc*/
+.eeXybo time{display:block;color:#868E96;font-size:0.8em;}/*!sc*/
+data-styled.g10[id="PostTemplate__DateContainer-sc-1y3rc8p-4"]{content:"eeXybo,"}/*!sc*/
+.krIMen{width:100%;}/*!sc*/
+.krIMen h2,.krIMen h3,.krIMen h4,.krIMen h5,.krIMen h6{font-weight:400;}/*!sc*/
+.krIMen .h2-div{margin:29px 0 22px;padding-left:10px;padding-bottom:2px;border-left:5px solid #7950f2;border-top-left-radius:2px;border-bottom-left-radius:2px;}/*!sc*/
+.krIMen h2{font-size:1.5em;}/*!sc*/
+@media (max-width: 767px){.krIMen h2{font-size:1.25em;}}/*!sc*/
+.krIMen h2 .anchor{left:-15px;}/*!sc*/
+.krIMen .anchor svg{width:20px;height:20px;fill:#7950f2;}/*!sc*/
+.krIMen h3{margin:22px 0 15px;}/*!sc*/
+.krIMen h4{margin-bottom:10px;}/*!sc*/
+.krIMen h6{color:#ADB5BD;}/*!sc*/
+.krIMen a:not(.anchor){color:#845ef7;}/*!sc*/
+.krIMen a:not(.anchor):hover{color:#7048e8;font-weight:500;font-size:1.05em;transition:0.5s;}/*!sc*/
+.krIMen p{font-size:1em;margin-bottom:22px;line-height:1.6;}/*!sc*/
+.krIMen hr{background-color:#E9ECEF;height:1px;border:0;margin:20px 0 40px;}/*!sc*/
+.krIMen .gatsby-resp-image-wrapper{margin-bottom:20px;}/*!sc*/
+.krIMen li{font-size:1em;margin-bottom:6px;}/*!sc*/
+.krIMen pre{margin:0;}/*!sc*/
+data-styled.g11[id="PostTemplate__MdxContainer-sc-1y3rc8p-5"]{content:"krIMen,"}/*!sc*/
+.iTptVg{width:100%;}/*!sc*/
+data-styled.g12[id="PostTemplate__FooterContainer-sc-1y3rc8p-6"]{content:"iTptVg,"}/*!sc*/
+</style><style>.gatsby-image-wrapper{position:relative;overflow:hidden}.gatsby-image-wrapper picture.object-fit-polyfill{position:static!important}.gatsby-image-wrapper img{bottom:0;height:100%;left:0;margin:0;max-width:none;padding:0;position:absolute;right:0;top:0;width:100%;object-fit:cover}.gatsby-image-wrapper [data-main-image]{opacity:0;transform:translateZ(0);transition:opacity .25s linear;will-change:opacity}.gatsby-image-wrapper-constrained{display:inline-block;vertical-align:top}</style><noscript><style>.gatsby-image-wrapper noscript [data-main-image]{opacity:1!important}.gatsby-image-wrapper [data-placeholder-image]{opacity:0!important}</style></noscript><script type="module">const e="undefined"!=typeof HTMLImageElement&&"loading"in HTMLImageElement.prototype;e&&document.body.addEventListener("load",(function(e){const t=e.target;if(void 0===t.dataset.mainImage)return;if(void 0===t.dataset.gatsbyImageSsr)return;let a=null,n=t;for(;null===a&&n;)void 0!==n.parentNode.dataset.gatsbyImageWrapper&&(a=n.parentNode),n=n.parentNode;const o=a.querySelector("[data-placeholder-image]"),r=new Image;r.src=t.currentSrc,r.decode().catch((()=>{})).then((()=>{t.style.opacity=1,o&&(o.style.opacity=0,o.style.transition="opacity 500ms linear")}))}),!0);</script><link rel="sitemap" type="application/xml" href="/sitemap-index.xml"/><link rel="icon" href="/favicon-32x32.png?v=13d412c8770fdadbe2de3fa217b3c5c4" type="image/png"/><link rel="manifest" href="/manifest.webmanifest" crossorigin="anonymous"/><link rel="apple-touch-icon" sizes="48x48" href="/icons/icon-48x48.png?v=13d412c8770fdadbe2de3fa217b3c5c4"/><link rel="apple-touch-icon" sizes="72x72" href="/icons/icon-72x72.png?v=13d412c8770fdadbe2de3fa217b3c5c4"/><link rel="apple-touch-icon" sizes="96x96" href="/icons/icon-96x96.png?v=13d412c8770fdadbe2de3fa217b3c5c4"/><link rel="apple-touch-icon" sizes="144x144" href="/icons/icon-144x144.png?v=13d412c8770fdadbe2de3fa217b3c5c4"/><link rel="apple-touch-icon" sizes="192x192" href="/icons/icon-192x192.png?v=13d412c8770fdadbe2de3fa217b3c5c4"/><link rel="apple-touch-icon" sizes="256x256" href="/icons/icon-256x256.png?v=13d412c8770fdadbe2de3fa217b3c5c4"/><link rel="apple-touch-icon" sizes="384x384" href="/icons/icon-384x384.png?v=13d412c8770fdadbe2de3fa217b3c5c4"/><link rel="apple-touch-icon" sizes="512x512" href="/icons/icon-512x512.png?v=13d412c8770fdadbe2de3fa217b3c5c4"/><link rel="alternate" type="application/rss+xml" title="Classic95의 블로그" href="/feed.xml"/><style type="text/css">
+    .anchor.before {
+      position: absolute;
+      top: 0;
+      left: 0;
+      transform: translateX(-100%);
+      padding-right: 4px;
+    }
+    .anchor.after {
+      display: inline-block;
+      padding-left: 4px;
+    }
+    h1 .anchor svg,
+    h2 .anchor svg,
+    h3 .anchor svg,
+    h4 .anchor svg,
+    h5 .anchor svg,
+    h6 .anchor svg {
+      visibility: hidden;
+    }
+    h1:hover .anchor svg,
+    h2:hover .anchor svg,
+    h3:hover .anchor svg,
+    h4:hover .anchor svg,
+    h5:hover .anchor svg,
+    h6:hover .anchor svg,
+    h1 .anchor:focus svg,
+    h2 .anchor:focus svg,
+    h3 .anchor:focus svg,
+    h4 .anchor:focus svg,
+    h5 .anchor:focus svg,
+    h6 .anchor:focus svg {
+      visibility: visible;
+    }
+  </style><script>
+    document.addEventListener("DOMContentLoaded", function(event) {
+      var hash = window.decodeURI(location.hash.replace('#', ''))
+      if (hash !== '') {
+        var element = document.getElementById(hash)
+        if (element) {
+          var scrollTop = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop
+          var clientTop = document.documentElement.clientTop || document.body.clientTop || 0
+          var offset = element.getBoundingClientRect().top + scrollTop - clientTop
+          // Wait for the browser to finish rendering before scrolling.
+          setTimeout((function() {
+            window.scrollTo(0, offset - 0)
+          }), 0)
+        }
+      }
+    })
+  </script><link rel="preconnect" href="https://fonts.googleapis.com" crossorigin="true"/><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="true"/><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;600&amp;display=swap"/><title data-gatsby-head="true">[react-native] Solve ios simulator unable to boot device in current state: Booted error | Classic95의 블로그</title><link rel="apple-touch-icon" href="/favicon.ico" data-gatsby-head="true"/><script type="application/ld+json" data-gatsby-head="true">{"@context":"http://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"Classic95","logo":null},"url":"https://classic-95.com/en/posts/2023/09/react-native-unable-to-boot-device/","headline":"[react-native] Solve ios simulator unable to boot device in current state: Booted error | Classic95의 블로그","description":"Today, we will learn how to resolve the unable to boot device in current state: Booted error that often occurs when running the iOS simulator in react-native.","datePublished":"2023-11-04T02:05:20.000Z","dateModified":"2023-11-04T02:05:20.000Z","image":"https://classic-95.com/static/41ace13b6768be6622e6257e9bb0a52f/497c6/react-native.png"}</script><script src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3926462216067158" crossorigin="anonymous" data-gatsby-head="true"></script></head><body><div id="___gatsby"><div style="outline:none" tabindex="-1" id="gatsby-focus-wrapper"><div class="PostTemplate__Container-sc-1y3rc8p-0 gYgDAj"><div class="PostTemplate__BodyContainer-sc-1y3rc8p-1 dGWzXm"><div class="PostTemplate__ContentContainer-sc-1y3rc8p-2 jNPMjW"><h1 class="PostTemplate__TitleLabel-sc-1y3rc8p-3 lnNHIF">[react-native] Solve ios simulator unable to boot device in current state: Booted error</h1><div class="PostTemplate__DateContainer-sc-1y3rc8p-4 eeXybo"><time dateTime="2023-11-04T02:05:20.000Z">23.11.04 11:05</time></div><div class="PostTemplate__MdxContainer-sc-1y3rc8p-5 krIMen"><span><span
+      class="gatsby-resp-image-wrapper"
+      style="position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 530px; "
+    >
+      <a
+    class="gatsby-resp-image-link"
+    href="/static/d11db51c6197afc62acb4312f1aeecd9/c2b64/boot-0.webp"
+    style="display: block"
+    target="_blank"
+    rel="noopener"
+  >
+    <span
+    class="gatsby-resp-image-background-image"
+    style="padding-bottom: 76.27906976744185%; position: relative; bottom: 0; left: 0; background-image: url('data:image/webp;base64,UklGRnIAAABXRUJQVlA4IGYAAADQAwCdASoUAA8APtFUo0uoJKMhsAgBABoJYgCdACFM0+J8mrHV0AAA/tjXeqULKUCad1iiJo1eI1L+1WTIVkrTpCMcn+kv27DCgAZt2r9+KHSohmDhyeh8ImrBnbj+2+V2i7RpgAA='); background-size: cover; display: block;"
+  ></span>
+  <img
+        class="gatsby-resp-image-image"
+        alt="ios simulator Unable to boot device in current state: Booted"
+        title=""
+        src="/static/d11db51c6197afc62acb4312f1aeecd9/c2b64/boot-0.webp"
+        srcset="/static/d11db51c6197afc62acb4312f1aeecd9/4bbe2/boot-0.webp 215w,
+/static/d11db51c6197afc62acb4312f1aeecd9/866c5/boot-0.webp 430w,
+/static/d11db51c6197afc62acb4312f1aeecd9/c2b64/boot-0.webp 530w"
+        sizes="(max-width: 530px) 100vw, 530px"
+        style="width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;"
+        loading="lazy"
+        decoding="async"
+      />
+  </a>
+    </span></span>
+<p>Today, we will learn how to resolve the unable to boot device in current state: Booted error that often occurs when running the iOS simulator in react-native.</p>
+<p>To find out why the error occurs, the simulator is running.</p>
+<p>Now, let’s find out how to solve it.</p>
+<hr/>
+<div class="h2-div"><h2 id="1-resolution" style="position:relative"><a href="#1-resolution" aria-label="1 resolution permalink" class="anchor before"><span><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></span></a>1. Resolution</h2></div>
+<h3 id="1-1-open-ios-simulator-settings" style="position:relative"><a href="#1-1-open-ios-simulator-settings" aria-label="1 1 open ios simulator settings permalink" class="anchor before"><span><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></span></a>1-1. Open ios simulator settings</h3>
+<p>With the iOS simulator turned on, click Simulator -&gt; Settings... in the menu bar at the top left, as shown in the image below.</p>
+<p>Or, while turning on the simulator, press (⌘ + ,) together.</p>
+<img src="/static/boot-1-1a7492d4628ff856d2f0e263273a5463.webp" style="width:250px;margin:auto;display:block;margin-bottom:20px" alt="ios simulator settings"/>
+<h3 id="1-2-change-simulator-lifetime" style="position:relative"><a href="#1-2-change-simulator-lifetime" aria-label="1 2 change simulator lifetime permalink" class="anchor before"><span><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></span></a>1-2. Change Simulator lifetime</h3>
+<p>As shown in the image below, uncheck &quot;When Simulator starts boot the most recently used simulator&quot; in the Simulator lifetime section.</p>
+<span><span
+      class="gatsby-resp-image-wrapper"
+      style="position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 860px; "
+    >
+      <a
+    class="gatsby-resp-image-link"
+    href="/static/d9dd05d3715a62bee68ee7e5f4e754cb/b2d4b/boot-2.webp"
+    style="display: block"
+    target="_blank"
+    rel="noopener"
+  >
+    <span
+    class="gatsby-resp-image-background-image"
+    style="padding-bottom: 81.3953488372093%; position: relative; bottom: 0; left: 0; background-image: url('data:image/webp;base64,UklGRlIAAABXRUJQVlA4IEYAAACQAwCdASoUABAAPtFUo0uoJKMhsAgBABoJZwAAXE7Q+yf0GIAAAP7pE7+woyy/N/io1S40kCD6jS0EJhypjTB8JtGgAAAA'); background-size: cover; display: block;"
+  ></span>
+  <img
+        class="gatsby-resp-image-image"
+        alt="ios simulator lifetime &quot;When Simulator starts boot the most recently used simulator&quot;"
+        title=""
+        src="/static/d9dd05d3715a62bee68ee7e5f4e754cb/31b17/boot-2.webp"
+        srcset="/static/d9dd05d3715a62bee68ee7e5f4e754cb/4bbe2/boot-2.webp 215w,
+/static/d9dd05d3715a62bee68ee7e5f4e754cb/866c5/boot-2.webp 430w,
+/static/d9dd05d3715a62bee68ee7e5f4e754cb/31b17/boot-2.webp 860w,
+/static/d9dd05d3715a62bee68ee7e5f4e754cb/b2d4b/boot-2.webp 1152w"
+        sizes="(max-width: 860px) 100vw, 860px"
+        style="width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;"
+        loading="lazy"
+        decoding="async"
+      />
+  </a>
+    </span></span>
+<hr/>
+<div class="h2-div"><h2 id="references" style="position:relative"><a href="#references" aria-label="references permalink" class="anchor before"><span><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></span></a>References</h2></div>
+<ul>
+<li><a href="https://stackoverflow.com/questions/24135067/unable-to-boot-device-in-current-state-booted/71249396#71249396">stack overflow</a></li>
+</ul>
+<hr/>
+<div class="h2-div"><h2 id="organizing" style="position:relative"><a href="#organizing" aria-label="organizing permalink" class="anchor before"><span><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></span></a>Organizing</h2></div>
+<p>Today, we learned how to resolve the unable to boot device in current state: Booted error that often occurs when running the iOS simulator in react-native.</p>
+<p>If you follow along with the images, you can solve the problem without much difficulty, so I hope you can solve it by following it step by step.</p></div></div></div><div class="PostTemplate__FooterContainer-sc-1y3rc8p-6 iTptVg"><div class="Utterances__Container-sc-444a7q-0 jzwdfe"></div></div></div></div><div id="gatsby-announcer" style="position:absolute;top:0;width:1px;height:1px;padding:0;overflow:hidden;clip:rect(0, 0, 0, 0);white-space:nowrap;border:0" aria-live="assertive" aria-atomic="true"></div></div><script id="gatsby-script-loader">/*<![CDATA[*/window.pagePath="/en/posts/2023/09/react-native-unable-to-boot-device/";/*]]>*/</script><!-- slice-start id="_gatsby-scripts-1" -->
+          <script
+            id="gatsby-chunk-mapping"
+          >
+            window.___chunkMapping="{\"app\":[\"/app-1a7955562751a3c13f2d.js\"],\"component---src-components-post-post-template-tsx-content-file-path-contents-posts-en-2023-09-gatsby-mdx-blog-1-mdx\":[\"/component---src-components-post-post-template-tsx-content-file-path-contents-posts-en-2023-09-gatsby-mdx-blog-1-mdx-bbb701dde6ee3f6279c1.js\"],\"component---src-components-post-post-template-tsx-content-file-path-contents-posts-en-2023-09-install-homebrew-mdx\":[\"/component---src-components-post-post-template-tsx-content-file-path-contents-posts-en-2023-09-install-homebrew-mdx-ebbbf3eec6a67b6fd3f8.js\"],\"component---src-components-post-post-template-tsx-content-file-path-contents-posts-en-2023-09-install-iterm-mdx\":[\"/component---src-components-post-post-template-tsx-content-file-path-contents-posts-en-2023-09-install-iterm-mdx-643bebb65b6b25616692.js\"],\"component---src-components-post-post-template-tsx-content-file-path-contents-posts-en-2023-09-react-native-launch-packager-command-cant-be-opened-mdx\":[\"/component---src-components-post-post-template-tsx-content-file-path-contents-posts-en-2023-09-react-native-launch-packager-command-cant-be-opened-mdx-9237770533aab5387a75.js\"],\"component---src-components-post-post-template-tsx-content-file-path-contents-posts-en-2023-09-react-native-react-navigation-1-mdx\":[\"/component---src-components-post-post-template-tsx-content-file-path-contents-posts-en-2023-09-react-native-react-navigation-1-mdx-6490a9ba54dffd99ca42.js\"],\"component---src-components-post-post-template-tsx-content-file-path-contents-posts-en-2023-09-react-native-unable-to-boot-device-mdx\":[\"/component---src-components-post-post-template-tsx-content-file-path-contents-posts-en-2023-09-react-native-unable-to-boot-device-mdx-b978843403759f680ba7.js\"],\"component---src-components-post-post-template-tsx-content-file-path-contents-posts-ko-2023-09-gatsby-mdx-blog-1-mdx\":[\"/component---src-components-post-post-template-tsx-content-file-path-contents-posts-ko-2023-09-gatsby-mdx-blog-1-mdx-750fcba269cdd0e0ab92.js\"],\"component---src-components-post-post-template-tsx-content-file-path-contents-posts-ko-2023-09-install-homebrew-mdx\":[\"/component---src-components-post-post-template-tsx-content-file-path-contents-posts-ko-2023-09-install-homebrew-mdx-a775f52fa5652c6e9f4e.js\"],\"component---src-components-post-post-template-tsx-content-file-path-contents-posts-ko-2023-09-install-iterm-mdx\":[\"/component---src-components-post-post-template-tsx-content-file-path-contents-posts-ko-2023-09-install-iterm-mdx-f7af3249617377de236f.js\"],\"component---src-components-post-post-template-tsx-content-file-path-contents-posts-ko-2023-09-react-native-launch-packager-command-cant-be-opened-mdx\":[\"/component---src-components-post-post-template-tsx-content-file-path-contents-posts-ko-2023-09-react-native-launch-packager-command-cant-be-opened-mdx-f7d9ad83404e2e48393c.js\"],\"component---src-components-post-post-template-tsx-content-file-path-contents-posts-ko-2023-09-react-native-react-navigation-1-mdx\":[\"/component---src-components-post-post-template-tsx-content-file-path-contents-posts-ko-2023-09-react-native-react-navigation-1-mdx-4ac699927f4a2e1f6681.js\"],\"component---src-components-post-post-template-tsx-content-file-path-contents-posts-ko-2023-09-react-native-unable-to-boot-device-mdx\":[\"/component---src-components-post-post-template-tsx-content-file-path-contents-posts-ko-2023-09-react-native-unable-to-boot-device-mdx-d42de70f0662f5b8ab08.js\"],\"component---src-pages-404-tsx\":[\"/component---src-pages-404-tsx-b824aed2dd489e89ee66.js\"],\"component---src-pages-en-index-tsx\":[\"/component---src-pages-en-index-tsx-445d1c0b3b553fa536d4.js\"],\"component---src-pages-index-tsx\":[\"/component---src-pages-index-tsx-5c8575f4100f4c43bc88.js\"]}";
+          </script>
+        <script>window.___webpackCompilationHash="3948c4be2d4125a1fd6a";</script><script src="/webpack-runtime-d5360a7a84ee89ff8ab2.js" async></script><script src="/framework-9ae28820798267334977.js" async></script><script src="/252f366e-2e4824a40fecacc577a1.js" async></script><script src="/app-1a7955562751a3c13f2d.js" async></script><!-- slice-end id="_gatsby-scripts-1" --></body></html>
