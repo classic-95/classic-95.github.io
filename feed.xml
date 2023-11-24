@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Classic95의 블로그]]></title><description><![CDATA[누구나 쉽게 따라할 수 있는, 남녀노소 모두를 위한 개발 블로그]]></description><link>https://classic-95.com?utm_source=blog-feed&amp;utm_medium=feed&amp;utm_campaign=feed</link><generator>GatsbyJS</generator><lastBuildDate>Thu, 23 Nov 2023 09:00:16 GMT</lastBuildDate><item><title><![CDATA[[gatsby] Creating an mdx based blog-1]]></title><description><![CDATA[Let's create a blog based on mdx of the gatsby framework.]]></description><link>https://classic-95.com/en/posts/2023/11/gatsby-mdx-blog-1/</link><guid isPermaLink="false">https://classic-95.com/en/posts/2023/11/gatsby-mdx-blog-1/</guid><pubDate>Mon, 13 Nov 2023 04:12:31 GMT</pubDate><content:encoded>There are three main frameworks that are most popular when creating markdown, md, or mdx-based blogs. Those are jekyll, Hugo, and Gatsby.
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Classic95의 블로그]]></title><description><![CDATA[누구나 쉽게 따라할 수 있는, 남녀노소 모두를 위한 개발 블로그]]></description><link>https://classic-95.com?utm_source=blog-feed&amp;utm_medium=feed&amp;utm_campaign=feed</link><generator>GatsbyJS</generator><lastBuildDate>Fri, 24 Nov 2023 10:55:14 GMT</lastBuildDate><item><title><![CDATA[[gatsby] Creating an mdx based blog-1]]></title><description><![CDATA[Let's create a blog based on mdx of the gatsby framework.]]></description><link>https://classic-95.com/en/posts/2023/11/gatsby-mdx-blog-1/</link><guid isPermaLink="false">https://classic-95.com/en/posts/2023/11/gatsby-mdx-blog-1/</guid><pubDate>Mon, 13 Nov 2023 04:12:31 GMT</pubDate><content:encoded>There are three main frameworks that are most popular when creating markdown, md, or mdx-based blogs. Those are jekyll, Hugo, and Gatsby.
 
 Among them, today we will learn how to create a blog using Gatsby.
 
@@ -32,11 +32,11 @@ Now, let’s find out how to solve it.
 
 With the iOS simulator turned on, click Simulator -&gt; Settings... in the menu bar at the top left, as shown in the image below.
 
-Or, while turning on the simulator, press (⌘ + ,) together.
+Or, while turning on the simulator, press ⌘ + , together.
 
 1-2. Change Simulator lifetime
 
-As shown in the image below, uncheck &quot;When Simulator starts boot the most recently used simulator&quot; in the Simulator lifetime section.
+As shown in the image below, uncheck When Simulator starts boot the most recently used simulator in the Simulator lifetime section.
 
 References
 stack overflow
@@ -44,7 +44,7 @@ Organizing
 
 Today, we learned how to resolve the unable to boot device in current state: Booted error that often occurs when running the iOS simulator in react-native.
 
-If you follow along with the images, you can solve the problem without much difficulty, so I hope you can solve it by following it step by step…</content:encoded></item><item><title><![CDATA[[react-native] Start screen transition with react-navigation]]></title><description><![CDATA[Let's learn about screen transitions in react-native using the react-navigation open source.]]></description><link>https://classic-95.com/en/posts/2023/11/react-native-react-navigation-1/</link><guid isPermaLink="false">https://classic-95.com/en/posts/2023/11/react-native-react-navigation-1/</guid><pubDate>Sat, 11 Nov 2023 10:22:28 GMT</pubDate><content:encoded>Today, let&apos;s learn about screen transitions in react-native using react-navigation open source. First, you can follow it more easily if you turn on the official Document. It&apos;s nice that blog posts are simply organized, but it&apos;s a good idea to always get into the habit of reading official documents.
+If you follow along with the images, you can solve the problem without much difficulty, so I hope you can solve it by following it step by step.</content:encoded></item><item><title><![CDATA[[react-native] Start screen transition with react-navigation]]></title><description><![CDATA[Let's learn about screen transitions in react-native using the react-navigation open source.]]></description><link>https://classic-95.com/en/posts/2023/11/react-native-react-navigation-1/</link><guid isPermaLink="false">https://classic-95.com/en/posts/2023/11/react-native-react-navigation-1/</guid><pubDate>Sat, 11 Nov 2023 10:22:28 GMT</pubDate><content:encoded>Today, let&apos;s learn about screen transitions in react-native using react-navigation open source. First, you can follow it more easily if you turn on the official Document. It&apos;s nice that blog posts are simply organized, but it&apos;s a good idea to always get into the habit of reading official documents.
 
 1. Create a project
 
@@ -115,9 +115,9 @@ Personally, I like pastel tones, so I downloaded and used the Snazzy color schem
 
 If you download any theme, double-click it and it will automatically be added to iTerm2&apos;s iTerm Color Preset.
 
-To check, run iTerm2 and press (⌘ + ,) together.
+To check, run iTerm2 and press ⌘ + , together.
 
-Then, in the window shown below, select Profile -&gt; Colors -&gt; Color…</content:encoded></item><item><title><![CDATA[[macOS] Install m1 homebrew]]></title><description><![CDATA[Unlike Intel Macs, Macs with m1 or higher require a slightly additional homebrew installation process. Today we will learn how to install homebrew on an m1 Mac.]]></description><link>https://classic-95.com/en/posts/2023/11/install-homebrew/</link><guid isPermaLink="false">https://classic-95.com/en/posts/2023/11/install-homebrew/</guid><pubDate>Fri, 03 Nov 2023 12:42:15 GMT</pubDate><content:encoded>Unlike Intel Macs, Macs with m1 or higher require a slightly additional homebrew installation process. Today we will learn how to install homebrew on an m1 Mac.
+Then, in the window shown below, select Profile -&gt; Colors -&gt; Color Presets.…</content:encoded></item><item><title><![CDATA[[macOS] Install m1 homebrew]]></title><description><![CDATA[Unlike Intel Macs, Macs with m1 or higher require a slightly additional homebrew installation process. Today we will learn how to install homebrew on an m1 Mac.]]></description><link>https://classic-95.com/en/posts/2023/11/install-homebrew/</link><guid isPermaLink="false">https://classic-95.com/en/posts/2023/11/install-homebrew/</guid><pubDate>Fri, 03 Nov 2023 12:42:15 GMT</pubDate><content:encoded>Unlike Intel Macs, Macs with m1 or higher require a slightly additional homebrew installation process. Today we will learn how to install homebrew on an m1 Mac.
 
 1. Install homebrew
 
@@ -226,9 +226,7 @@ cd ..
 
 2-2. android 추가 작업
 
-android의 경우 &quot;&quot; 에서 아래의 코드를 추가해야해요.
-
-아래 코드를 추가하지 않으면 앱을…</content:encoded></item><item><title><![CDATA[[react-native] ios simulator unable to boot device in current state: Booted 오류 해결]]></title><description><![CDATA[오늘은 react-native에서 ios simulator를 실행시킬 때 종종 발생하는 unable to boot device in current state: Booted 오류를 해결하는 방법에 대해 알아봐요.]]></description><link>https://classic-95.com/posts/2023/09/react-native-unable-to-boot-device/</link><guid isPermaLink="false">https://classic-95.com/posts/2023/09/react-native-unable-to-boot-device/</guid><pubDate>Sun, 03 Sep 2023 11:05:20 GMT</pubDate><content:encoded>오늘은 react-native에서 ios simulator를 실행시킬 때 종종 발생하는 unable to boot device in current state: Booted 오류를 해결하는 방법에 대해 알아봐요. 오류가 나는 이유부터 알아보자면 시뮬레이터가 실행 상태
+android의 경우 android/app/src/main/java/&lt;프로젝트명&gt;/MainActivity…</content:encoded></item><item><title><![CDATA[[react-native] ios simulator unable to boot device in current state: Booted 오류 해결]]></title><description><![CDATA[오늘은 react-native에서 ios simulator를 실행시킬 때 종종 발생하는 unable to boot device in current state: Booted 오류를 해결하는 방법에 대해 알아봐요.]]></description><link>https://classic-95.com/posts/2023/09/react-native-unable-to-boot-device/</link><guid isPermaLink="false">https://classic-95.com/posts/2023/09/react-native-unable-to-boot-device/</guid><pubDate>Sun, 03 Sep 2023 11:05:20 GMT</pubDate><content:encoded>오늘은 react-native에서 ios simulator를 실행시킬 때 종종 발생하는 unable to boot device in current state: Booted 오류를 해결하는 방법에 대해 알아봐요. 오류가 나는 이유부터 알아보자면 시뮬레이터가 실행 상태
 
 그럼 이제 해결 방법에 대해 알아볼까요?
 
@@ -237,11 +235,11 @@ android의 경우 &quot;&quot; 에서 아래의 코드를 추가해야해요.
 
 ios 시뮬레이터를 켠 상태에서 아래의 이미지와 같이 좌측 상단의 메뉴바에서 Simulator -&gt; Settings... 를 클릭해주세요.
 
-혹은 시뮬레이터를 켠 상태에서 (⌘ + ,)를 함께 눌러주세요.
+혹은 시뮬레이터를 켠 상태에서 ⌘ + ,를 함께 눌러주세요.
 
 1-2. Simulator lifetime 변경
 
-아래의 이미지와 같이 Simulator lifetime 부분의 &quot;When Simulator starts boot the most recently used simulator&quot;를 체크 해제해주세요.
+아래의 이미지와 같이 Simulator lifetime 부분의 When Simulator starts boot the most recently used simulator를 체크 해제해주세요.
 
 참고
 stack overflow
@@ -318,7 +316,7 @@ sh -c &quot;$(curl -fsSL https://raw.github.com/robbyrussell/oh-my-zsh/master/to
 
 어떤 테마든 다운로드 받으셨다면 더블 클릭하시면 자동으로 iterm2의 iTerm Color Preset에 추가되요.
 
-확인하기 위해 iTerm2를 실행시킨 후 (⌘ + ,)를 함께 눌러주세요.
+확인하기 위해 iTerm2를 실행시킨 후 ⌘ + ,를 함께 눌러주세요.
 
 그리고 나온 아래와 같은 창에서 Profile -&gt; Colors -&gt; Color Presets... -&gt; Snazzy(또는 다운받은 컬러 스킴)를 선택해주세요.
 
@@ -332,7 +330,7 @@ sh -c &quot;$(curl -fsSL https://raw.github.com/robbyrussell/oh-my-zsh/master/to
 
 위와 같은 창에서 Profile -&gt; Session -&gt; Status bar enabled를 체크해주시고 오른쪽의 Configure Status Bar를 클릭해주세요.
 
-그럼 아래와 같은 창이 나오는데 터미널에 표시됐으면…</content:encoded></item><item><title><![CDATA[[macOS] m1 homebrew 설치하기]]></title><description><![CDATA[인텔 맥과 다르게 m1 이상의 맥은 homebrew 설치 과정이 조금 추가되는데요. 오늘은 m1 맥에서 homebrew를 설치하는 방법에 대해 알아보도록 해요.]]></description><link>https://classic-95.com/posts/2023/09/install-homebrew/</link><guid isPermaLink="false">https://classic-95.com/posts/2023/09/install-homebrew/</guid><pubDate>Fri, 01 Sep 2023 21:42:15 GMT</pubDate><content:encoded>인텔 맥과 다르게 m1 이상의 맥은 homebrew 설치 과정이 조금 추가되는데요. 오늘은 m1 맥에서 homebrew를 설치하는 방법에 대해 알아보도록 해요.
+그럼 아래와 같은 창이 나오는데 터미널에 표시됐으면 하는…</content:encoded></item><item><title><![CDATA[[macOS] m1 homebrew 설치하기]]></title><description><![CDATA[인텔 맥과 다르게 m1 이상의 맥은 homebrew 설치 과정이 조금 추가되는데요. 오늘은 m1 맥에서 homebrew를 설치하는 방법에 대해 알아보도록 해요.]]></description><link>https://classic-95.com/posts/2023/09/install-homebrew/</link><guid isPermaLink="false">https://classic-95.com/posts/2023/09/install-homebrew/</guid><pubDate>Fri, 01 Sep 2023 21:42:15 GMT</pubDate><content:encoded>인텔 맥과 다르게 m1 이상의 맥은 homebrew 설치 과정이 조금 추가되는데요. 오늘은 m1 맥에서 homebrew를 설치하는 방법에 대해 알아보도록 해요.
 
 1. homebrew 설치
 
