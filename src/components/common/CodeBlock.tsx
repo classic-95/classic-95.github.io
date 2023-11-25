@@ -17,8 +17,7 @@ const Pre = styled.div`
 	overflow-x: scroll;
 	padding: 1em;
 
-	.token-line {
-	}
+	margin-bottom: 22px;
 `;
 
 const Line = styled.div`
@@ -45,12 +44,23 @@ const LineContent = styled.span`
 	display: table-cell;
 `;
 
+const InlineCode = styled.code`
+	font-family: "Noto Sans KR";
+	font-size: 1rem;
+	background-color: ${palette.gray[0]};
+	width: 100%;
+	margin: 0;
+	padding: 0 0.5rem;
+	border-radius: 4px;
+	color: #db4c69;
+`;
+
 const CodeBlock = (
 	props: React.DetailedHTMLProps<React.HTMLAttributes<HTMLElement>, HTMLElement>,
 ) => {
 	const matches = (props!.className || "").match(/language-(?<lang>.*)/);
 
-	if (!matches) return null;
+	if (!matches) return <InlineCode>{props.children}</InlineCode>;
 	return (
 		<Highlight
 			code={((props.children || "") as string).trim()}

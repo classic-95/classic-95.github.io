@@ -4,6 +4,7 @@ title: "[macOS] Install m1 homebrew"
 thumbnail: "../../../../images/logos/homebrew.png"
 created_at: 2023-11-03T21:42:15+09:00
 is_private: false
+transition: /posts/2023/09/install-homebrew
 description: "Unlike Intel Macs, Macs with m1 or higher require a slightly additional homebrew installation process. Today we will learn how to install homebrew on an m1 Mac."
 ---
 
@@ -30,7 +31,7 @@ brew --version
 
 For Intel Macs, the installation is complete, so you can find the version here and use the brew command!
 
-In the case of m1 Mac, when the installation is completed and you enter the brew --version command to check, the message zsh: command not found: brew appears as shown below.
+In the case of m1 Mac, when the installation is completed and you enter the brew --version command to check, the message `zsh: command not found: brew` appears as shown below.
 
 The reason this phrase appears is simple. This is because the location of the homebrew executable file is not set in the path.
 
@@ -52,7 +53,7 @@ If you look at it, it kindly tells you about the next steps as shown below, whic
 
 Shall we follow the same example?
 
-Copy the codes below and paste them into the terminal. In the {"{your user name}"} section, enter the folder name registered on your Mac.
+Copy the codes below and paste them into the terminal. In the `{your user name}` section, enter the folder name registered on your Mac.
 
 ```bash
 echo '# Set PATH, MANPATH, etc., for Homebrew.' >> /Users/{your user name}/.zprofile

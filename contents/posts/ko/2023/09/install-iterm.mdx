@@ -4,6 +4,7 @@ title: "[mac] iTerm2 설치"
 thumbnail: "../../../../images/logos/iterm2.webp"
 created_at: 2023-09-02 13:00:00
 is_private: false
+transition: /en/posts/2023/11/install-iterm
 description: "mac에 iTemr2를 설치하고 oh-my-zsh로 알록달록한 터미널을 만들어봐요."
 ---
 
@@ -15,7 +16,7 @@ description: "mac에 iTemr2를 설치하고 oh-my-zsh로 알록달록한 터미�
 
 설치는 brew로 해줄게요.
 
-만약 Homebrew가 설치되어 있지 않으시면 [이 포스팅](/posts/2023/09/install-homebrew)을 따라서 설치하고 돌아와주세요.
+만약 `Homebrew`가 설치되어 있지 않으시면 [이 포스팅](/posts/2023/09/install-homebrew)을 따라서 설치하고 돌아와주세요.
 
 이제 아래 명령어를 터미널에 입력해서 설치해주세요.
 
@@ -25,7 +26,7 @@ brew install iterm2
 
 ## 2. oh-my-zsh 설치
 
-iterm2에서 여러 가지 테마를 적용하거나 자동완성 등의 기능을 적용하기 위해 zsh(Z shell)의 플러그인 중 하나인 oh-my-zsh를 설치해요.
+iterm2에서 여러 가지 테마를 적용하거나 자동완성 등의 기능을 적용하기 위해 zsh(Z shell)의 플러그인 중 하나인 `oh-my-zsh`를 설치해요.
 
 ```bash
 sh -c "$(curl -fsSL https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
@@ -43,9 +44,9 @@ sh -c "$(curl -fsSL https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/i
 
 어떤 테마든 다운로드 받으셨다면 더블 클릭하시면 자동으로 iterm2의 iTerm Color Preset에 추가되요.
 
-확인하기 위해 iTerm2를 실행시킨 후 (⌘ + ,)를 함께 눌러주세요.
+확인하기 위해 iTerm2를 실행시킨 후 `⌘ + ,`를 함께 눌러주세요.
 
-그리고 나온 아래와 같은 창에서 Profile -> Colors -> Color Presets... -> Snazzy(또는 다운받은 컬러 스킴)를 선택해주세요.
+그리고 나온 아래와 같은 창에서 `Profile -> Colors -> Color Presets... -> Snazzy(또는 다운받은 컬러 스킴)`를 선택해주세요.
 
 ![iterm2 color presets](../../../../images/2023/09/iterm-0.webp)
 
@@ -53,13 +54,13 @@ sh -c "$(curl -fsSL https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/i
 
 터미널에서 한글이 깨지는 경우가 많이 발생하는데 아래와 같이 설정해서 한글 깨짐을 방지해주세요.
 
-위와 같은 창에서 Profile -> Text -> Unicode normalization form: NFC 로 변경해주세요.
+위와 같은 창에서 `Profile -> Text -> Unicode normalization form: NFC` 로 변경해주세요.
 
 ![iterm2 한글 깨짐 방지](../../../../images/2023/09/iterm-1.webp)
 
 ### 3-3. 상태바 추가
 
-위와 같은 창에서 Profile -> Session -> Status bar enabled를 체크해주시고 오른쪽의 Configure Status Bar를 클릭해주세요.
+위와 같은 창에서 `Profile -> Session -> Status bar enabled`를 체크해주시고 오른쪽의 `Configure Status Bar`를 클릭해주세요.
 
 ![iterm2 status bar](../../../../images/2023/09/iterm-2.webp)
 
@@ -73,7 +74,7 @@ sh -c "$(curl -fsSL https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/i
 
 저는 상태창이 하단에 있는게 좋아서 아래 이미지와 같이 수정했는데 이건 개인 취향이니까 마음껏 변경해주세요.
 
-Appearance -> General -> Status bar location 에서 변경하실 수 있어요.
+`Appearance -> General -> Status bar location` 에서 변경하실 수 있어요.
 
 ![iterm2 status bar location](../../../../images/2023/09/iterm-4.webp)
 
@@ -91,7 +92,7 @@ git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:
 git clone https://github.com/zsh-users/zsh-autosuggestions.git $ZSH_CUSTOM/plugins/zsh-autosuggestions
 ```
 
-다운로드가 완료되면 ~/.zshrc 파일을 열어서 수정해줘요.
+다운로드가 완료되면 `~/.zshrc` 파일을 열어서 수정해줘요.
 
 ```bash
 vi ~/.zshrc
@@ -132,7 +133,7 @@ iterm2 프롬프트에는 [다양한 테마](https://github.com/ohmyzsh/ohmyzsh/
 git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/themes/powerlevel10k
 ```
 
-설치 완료 후 ~/.zshrc 파일을 열어서 ZSH_THEME 항목을 수정해요.
+설치 완료 후 `~/.zshrc` 파일을 열어서 `ZSH_THEME` 항목을 수정해요.
 
 ```bash
 vi ~/.zshrc

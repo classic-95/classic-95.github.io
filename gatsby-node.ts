@@ -1,6 +1,7 @@
 import path from "path";
 import { GatsbyNode } from "gatsby";
 import { createFilePath } from "gatsby-source-filesystem";
+import { ContinuedPost } from "./src/types/Common";
 
 export const onCreateNode: GatsbyNode["onCreateNode"] = async ({ actions, node, getNode }) => {
 	const { createNodeField } = actions;
@@ -17,15 +18,34 @@ export const onCreateNode: GatsbyNode["onCreateNode"] = async ({ actions, node, 
 };
 
 type QueryType = {
-	allMdx: {
-		nodes: {
-			id: string;
-			fields: {
-				slug: string;
+	ko: {
+		edges: {
+			previous: ContinuedPost;
+			node: {
+				id: string;
+				fields: {
+					slug: string;
+				};
+				internal: {
+					contentFilePath: string;
+				};
 			};
-			internal: {
-				contentFilePath: string;
+			next: ContinuedPost;
+		}[];
+	};
+	en: {
+		edges: {
+			previous: ContinuedPost;
+			node: {
+				id: string;
+				fields: {
+					slug: string;
+				};
+				internal: {
+					contentFilePath: string;
+				};
 			};
+			next: ContinuedPost;
 		}[];
 	};
 };
@@ -37,14 +57,73 @@ export const createPages: GatsbyNode["createPages"] = async ({ actions, graphql,
 
 	const result = await graphql<QueryType>(`
 		{
-			allMdx(filter: { frontmatter: { is_private: { eq: false } } }) {
-				nodes {
-					id
-					fields {
-						slug
+			ko: allMdx(
+				filter: {
+					fields: { slug: { regex: "/^((?!/en/).)*$/" } }
+					frontmatter: { is_private: { eq: false } }
+				}
+				sort: { frontmatter: { created_at: ASC } }
+			) {
+				edges {
+					next {
+						fields {
+							slug
+						}
+						frontmatter {
+							title
+						}
 					}
-					internal {
-						contentFilePath
+					node {
+						id
+						fields {
+							slug
+						}
+						internal {
+							contentFilePath
+						}
+					}
+					previous {
+						fields {
+							slug
+						}
+						frontmatter {
+							title
+						}
+					}
+				}
+			}
+			en: allMdx(
+				filter: {
+					fields: { slug: { regex: "/^.*(/en/).*/" } }
+					frontmatter: { is_private: { eq: false } }
+				}
+				sort: { frontmatter: { created_at: ASC } }
+			) {
+				edges {
+					next {
+						fields {
+							slug
+						}
+						frontmatter {
+							title
+						}
+					}
+					node {
+						id
+						fields {
+							slug
+						}
+						internal {
+							contentFilePath
+						}
+					}
+					previous {
+						fields {
+							slug
+						}
+						frontmatter {
+							title
+						}
 					}
 				}
 			}
@@ -56,11 +135,11 @@ export const createPages: GatsbyNode["createPages"] = async ({ actions, graphql,
 		return;
 	}
 
-	result.data.allMdx.nodes.forEach((node) =>
+	[...result.data.ko.edges, ...result.data.en.edges].forEach((edge) =>
 		createPage({
-			path: node.fields.slug,
-			component: `${postTemplate}?__contentFilePath=${node.internal.contentFilePath}`,
-			context: { id: node.id },
+			path: edge.node.fields.slug,
+			component: `${postTemplate}?__contentFilePath=${edge.node.internal.contentFilePath}`,
+			context: { id: edge.node.id, prev: edge.previous, next: edge.next },
 		}),
 	);
 };

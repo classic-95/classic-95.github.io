@@ -6,9 +6,11 @@ import { MDXComponents } from "@mdx-js/react/lib";
 import dateFormatter from "../../libs/formatter";
 import media from "../../libs/styles/media";
 import palette from "../../libs/styles/palette";
+import { ContinuedPost } from "../../types/Common";
 import CodeBlock from "../common/CodeBlock";
 import SEO from "../common/SEO";
 import Utterances from "../common/Utterances";
+import PrevNextPost from "./PrevNextPost";
 
 const Container = styled.div`
 	width: 100%;
@@ -60,6 +62,7 @@ const DateContainer = styled.div`
 
 const MdxContainer = styled.div`
 	width: 100%;
+	margin-bottom: 66px;
 
 	h2,
 	h3,
@@ -180,9 +183,25 @@ type QueryType = {
 			};
 		};
 	};
+	allMdx: {
+		edges: {
+			next: ContinuedPost;
+			previous: ContinuedPost;
+		}[];
+	};
 };
 
-export default function PostTemplate({ data, children, location }: PageProps<QueryType>) {
+type ContextType = {
+	prev: ContinuedPost;
+	next: ContinuedPost;
+};
+
+export default function PostTemplate({
+	data,
+	children,
+	location,
+	pageContext,
+}: PageProps<QueryType, ContextType>) {
 	const lang = useMemo(
 		() => (location.pathname.includes("/en/") ? "en" : "ko"),
 		[location.pathname],
@@ -210,6 +229,7 @@ export default function PostTemplate({ data, children, location }: PageProps<Que
 					<MdxContainer>
 						<MDXProvider components={components}>{children}</MDXProvider>
 					</MdxContainer>
+					<PrevNextPost prev={pageContext.prev} next={pageContext.next} lang={lang} />
 				</ContentContainer>
 			</BodyContainer>
 			<FooterContainer>

@@ -4,6 +4,7 @@ title: "[react-native] Start screen transition with react-navigation"
 thumbnail: "../../../../images/logos/react-native.png"
 created_at: 2023-11-11T19:22:28+09:00
 is_private: false
+transition: /posts/2023/09/react-native-react-navigation-1
 description: "Let's learn about screen transitions in react-native using the react-navigation open source."
 ---
 
@@ -56,7 +57,7 @@ iOS additional work For iOS, you need to perform a pod install to connect the mo
 
 ### 2-2. android additional actions
 
-For Android, you need to add the code below in \"{"android/app/src/main/java/<project name>/MainActivity.java"}\".
+For Android, you need to add the code below in `android/app/src/main/java/<project name>/MainActivity.java`.
 
 If you do not add the code below, an abnormal termination may occur when the app switches from the background to the foreground.
 
@@ -294,7 +295,7 @@ It'll probably work fine.
 
 Since version 0.7 of react-native, an error may occur while running a newly created project.
 
-The message \"launchPackager.command\" can't be opened appears.
+The message `"launchPackager.command" can't be opened` appears.
 
 In this case, please check [this post](/en/posts/2023/09/react-native-launch-packager-command-cant-be-opened) for a solution.
 

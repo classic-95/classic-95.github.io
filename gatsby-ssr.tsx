@@ -1,5 +1,5 @@
 import React from "react";
-import { GatsbyBrowser } from "gatsby";
+import { GatsbySSR } from "gatsby";
 import styled, { createGlobalStyle } from "styled-components";
 import CommonHeader from "./src/components/header/CommonHeader";
 
@@ -34,14 +34,16 @@ const GlobalStyle = createGlobalStyle`
 	}
 `;
 
-export const wrapPageElement: GatsbyBrowser["wrapPageElement"] = ({ element }) => {
-	const { path, pageContext } = element.props;
-	const lang = path.includes("/en/") ? "en" : "ko";
-	const transition = pageContext.frontmatter
-		? pageContext.frontmatter.transition || "#"
+export const wrapPageElement: GatsbySSR["wrapPageElement"] = ({ element }) => {
+	const lang = element.props.path.includes("/en/") ? "en" : "ko";
+	const hasTransition = !!(
+		element.props.pageContext.frontmatter && element.props.pageContext.frontmatter.transition
+	);
+	const transition = hasTransition
+		? element.props.pageContext.frontmatter.transition
 		: lang === "ko"
-		? `/en${path}`
-		: path.replace("/en/", "/");
+		? `/en${element.props.path}`
+		: element.props.path.replace("/en/", "/");
 
 	return (
 		<Container>

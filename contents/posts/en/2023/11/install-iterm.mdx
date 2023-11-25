@@ -4,6 +4,7 @@ title: "[mac] Install iTerm2"
 thumbnail: "../../../../images/logos/iterm2.webp"
 created_at: 2023-11-04T11:32:00+09:00
 is_private: false
+transition: /posts/2023/09/install-iterm
 description: "Install iTemr2 on your Mac and create a colorful terminal with oh-my-zsh."
 ---
 
@@ -25,7 +26,7 @@ brew install iterm2
 
 ## 2. Intsall oh-my-zsh
 
-To apply various themes or functions such as autocomplete in iterm2, install oh-my-zsh, one of the zsh (Z shell) plugins.
+To apply various themes or functions such as autocomplete in iterm2, install `oh-my-zsh`, one of the zsh (Z shell) plugins.
 
 ```bash
 sh -c "$(curl -fsSL https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
@@ -43,9 +44,9 @@ Personally, I like pastel tones, so I downloaded and used the Snazzy color schem
 
 If you download any theme, double-click it and it will automatically be added to iTerm2's iTerm Color Preset.
 
-To check, run iTerm2 and press (⌘ + ,) together.
+To check, run iTerm2 and press `⌘ + ,` together.
 
-Then, in the window shown below, select Profile -> Colors -> Color Presets... -> Snazzy (or the downloaded color scheme).
+Then, in the window shown below, select `Profile -> Colors -> Color Presets... -> Snazzy (or the downloaded color scheme)`.
 
 ![iterm2 color presets](../../../../images/2023/09/iterm-0.webp)
 
@@ -53,13 +54,13 @@ Then, in the window shown below, select Profile -> Colors -> Color Presets... ->
 
 There are many cases where Hangul is broken in the terminal, so please set the following to prevent Hangul from being broken.
 
-In the window above, change to Profile -> Text -> Unicode normalization form: NFC.
+In the window above, change to `Profile -> Text -> Unicode normalization form: NFC`.
 
 ![iterm2 Prevent Hangul from being broken](../../../../images/2023/09/iterm-1.webp)
 
 ### 3-3. Add status bar
 
-In the window above, check Profile -> Session -> Status bar enabled and click Configure Status Bar on the right.
+In the window above, `check Profile -> Session -> Status bar enabled` and click `Configure Status Bar` on the right.
 
 ![iterm2 status bar](../../../../images/2023/09/iterm-2.webp)
 
@@ -73,7 +74,7 @@ You can select a color theme from Auto-Rainbow at the bottom, so please select y
 
 I like the status window at the bottom, so I modified it as shown in the image below, but this is personal preference, so feel free to change it.
 
-You can change it at Appearance -> General -> Status bar location.
+You can change it at `Appearance -> General -> Status bar location`.
 
 ![iterm2 status bar location](../../../../images/2023/09/iterm-4.webp)
 
@@ -81,7 +82,7 @@ You can change it at Appearance -> General -> Status bar location.
 
 Now, let’s install oh-my-zsh’s strongest plugins.
 
-I use the command highlighting plugin (zsh-syntax-highlighting)[https://github.com/zsh-users/zsh-syntax-highlighting] and the autocompletion plugin (zsh-autosuggestions)[https://github.com/zsh-users/zsh-autosuggestions].
+I use the command highlighting plugin [zsh-syntax-highlighting](https://github.com/zsh-users/zsh-syntax-highlighting) and the autocompletion plugin [zsh-autosuggestions](https://github.com/zsh-users/zsh-autosuggestions).
 
 ```bash
 # zsh-syntax-highlighting
@@ -91,7 +92,7 @@ git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:
 git clone https://github.com/zsh-users/zsh-autosuggestions.git $ZSH_CUSTOM/plugins/zsh-autosuggestions
 ```
 
-Once the download is complete, open the ~/.zshrc file and edit it.
+Once the download is complete, open the `~/.zshrc` file and edit it.
 
 ```bash
 vi ~/.zshrc
@@ -133,7 +134,7 @@ I will install and apply powerlevel10k. You can install and apply other themes i
 git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/themes/powerlevel10k
 ```
 
-After installation is complete, open the ~/.zshrc file and edit the ZSH_THEME entry.
+After installation is complete, open the `~/.zshrc` file and edit the `ZSH_THEME` entry.
 
 ```bash
 vi ~/.zshrc

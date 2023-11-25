@@ -38,7 +38,13 @@ const InnerContainer = styled.div`
 	}
 
 	.header-logo {
+		width: 105px;
 		height: 35px;
+
+		${media.custom(767)} {
+			width: 90px;
+			height: auto;
+		}
 	}
 `;
 
@@ -48,7 +54,8 @@ const RightContainer = styled.div`
 
 interface Props {
 	lang: LanguageType;
-	path: string;
+	ko_to: string;
+	en_to: string;
 }
 
 type QueryType = {
@@ -59,12 +66,12 @@ type QueryType = {
 	};
 };
 
-export default function CommonHeader({ lang, path }: Props) {
+export default function CommonHeader({ lang, ko_to, en_to }: Props) {
 	const data = useStaticQuery<QueryType>(graphql`
 		{
 			file(relativePath: { eq: "preview.png" }) {
 				childImageSharp {
-					gatsbyImageData(height: 35, quality: 100)
+					gatsbyImageData(width: 540, height: 180, quality: 100)
 				}
 			}
 		}
@@ -97,8 +104,8 @@ export default function CommonHeader({ lang, path }: Props) {
 					</div>
 					<HeaderLanguageMenu
 						visible={menuVisible}
-						ko_to={lang === "ko" ? "#" : path.replace("/en/", "/")}
-						en_to={lang === "en" ? "#" : `/en${path}`}
+						ko_to={ko_to}
+						en_to={en_to}
 						onClose={onOutsideClick}
 					/>
 				</RightContainer>

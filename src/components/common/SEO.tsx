@@ -20,10 +20,15 @@ type QueryType = {
 			title: string;
 		};
 	};
+	file: {
+		childImageSharp: {
+			fixed: { src: string };
+		};
+	};
 };
 
 const SEO = ({ title, description, pathname, created_at, updated_at, image, children }: Props) => {
-	const { site } = useStaticQuery<QueryType>(graphql`
+	const { site, file } = useStaticQuery<QueryType>(graphql`
 		{
 			site {
 				siteMetadata {
@@ -33,6 +38,13 @@ const SEO = ({ title, description, pathname, created_at, updated_at, image, chil
 					title
 				}
 			}
+			file(relativePath: { eq: "preview.png" }) {
+				childImageSharp {
+					fixed(quality: 100) {
+						src
+					}
+				}
+			}
 		}
 	`);
 
@@ -40,7 +52,7 @@ const SEO = ({ title, description, pathname, created_at, updated_at, image, chil
 		author: site.siteMetadata.author,
 		title: title ? `${title} | ${site.siteMetadata.title}` : site.siteMetadata.title,
 		description: description || site.siteMetadata.description,
-		image: `${site.siteMetadata.siteUrl}${image || "/icon.png"}`,
+		image: `${site.siteMetadata.siteUrl}${image || file.childImageSharp.fixed.src}`,
 		url: `${site.siteMetadata.siteUrl}${pathname || ""}`,
 	};
 

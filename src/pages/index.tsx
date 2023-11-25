@@ -6,4 +6,4 @@ export default function HomePage() {
 	return <HomeBody lang="ko" />;
 }
 
-export const Head = () => <SEO title="Classic95의 블로그" />;
+export const Head = () => <SEO title="Home" />;

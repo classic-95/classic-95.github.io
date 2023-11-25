@@ -4,6 +4,7 @@ title: "[react-native] ios simulator unable to boot device in current state: Boo
 thumbnail: "../../../../images/logos/react-native.png"
 created_at: 2023-09-03 11:05:20
 is_private: false
+transition: /en/posts/2023/11/react-native-unable-to-boot-device
 description: "오늘은 react-native에서 ios simulator를 실행시킬 때 종종 발생하는 unable to boot device in current state: Booted 오류를 해결하는 방법에 대해 알아봐요."
 ---
 
@@ -11,7 +12,7 @@ import img1 from "../../../../images/2023/09/boot-1.webp";
 
 ![ios simulator Unable to boot device in current state: Booted](../../../../images/2023/09/boot-0.webp)
 
-오늘은 react-native에서 ios simulator를 실행시킬 때 종종 발생하는 unable to boot device in current state: Booted 오류를 해결하는 방법에 대해 알아봐요.
+오늘은 react-native에서 ios simulator를 실행시킬 때 종종 발생하는 `unable to boot device in current state: Booted` 오류를 해결하는 방법에 대해 알아봐요.
 
 오류가 나는 이유부터 알아보자면 시뮬레이터가 실행 상태
 
@@ -23,15 +24,15 @@ import img1 from "../../../../images/2023/09/boot-1.webp";
 
 ### 1-1. ios simulator settings 켜기
 
-ios 시뮬레이터를 켠 상태에서 아래의 이미지와 같이 좌측 상단의 메뉴바에서 Simulator -> Settings... 를 클릭해주세요.
+ios 시뮬레이터를 켠 상태에서 아래의 이미지와 같이 좌측 상단의 메뉴바에서 `Simulator -> Settings...` 를 클릭해주세요.
 
-혹은 시뮬레이터를 켠 상태에서 (⌘ + ,)를 함께 눌러주세요.
+혹은 시뮬레이터를 켠 상태에서 `⌘ + ,`를 함께 눌러주세요.
 
 <img src={img1} style={{width: 250, margin: "auto", display: "block", marginBottom: 20}} alt="ios simulator settings" />
 
 ### 1-2. Simulator lifetime 변경
 
-아래의 이미지와 같이 Simulator lifetime 부분의 \"When Simulator starts boot the most recently used simulator\"를 체크 해제해주세요.
+아래의 이미지와 같이 Simulator lifetime 부분의 `When Simulator starts boot the most recently used simulator`를 체크 해제해주세요.
 
 ![ios simulator lifetime \"When Simulator starts boot the most recently used simulator\"](../../../../images/2023/09/boot-2.webp)
 
@@ -45,6 +46,6 @@ ios 시뮬레이터를 켠 상태에서 아래의 이미지와 같이 좌측 상
 
 ## 정리하며
 
-오늘은 react-native에서 ios simulator를 실행시킬 때 종종 발생하는 unable to boot device in current state: Booted 오류를 해결하는 방법에 대해 알아봤어요.
+오늘은 react-native에서 ios simulator를 실행시킬 때 종종 발생하는 `unable to boot device in current state: Booted` 오류를 해결하는 방법에 대해 알아봤어요.
 
 이미지와 함께 보면서 따라오면 큰 어려움 없이 해결하실 수 있으니 차근차근 따라해서 해결하셨으면 좋겠어요.
