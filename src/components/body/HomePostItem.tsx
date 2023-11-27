@@ -1,6 +1,6 @@
-import React, { useMemo } from "react";
+import React from "react";
 import { Link } from "gatsby";
-import { GatsbyImage, getImage } from "gatsby-plugin-image";
+import { GatsbyImage, IGatsbyImageData } from "gatsby-plugin-image";
 import styled from "styled-components";
 import dateFormatter from "../../libs/formatter";
 import media from "../../libs/styles/media";
@@ -16,6 +16,7 @@ const Container = styled.div`
 
 	.thumbnail {
 		width: 180px;
+		border: 1px solid ${palette.gray[0]};
 
 		${media.custom(767)} {
 			width: 100px;
@@ -109,16 +110,11 @@ interface Props {
 		created_at: string;
 		description: string;
 		title: string;
-		thumbnail: any;
+		thumbnail: { childImageSharp: { gatsbyImageData: IGatsbyImageData } } | null;
 	};
 }
 
 export default function HomePostItem({ slug, post }: Props) {
-	const image = useMemo(
-		() => (post.thumbnail ? getImage(post.thumbnail) : null),
-		[post.thumbnail],
-	);
-
 	return (
 		<Link to={slug}>
 			<Container>
@@ -128,7 +124,13 @@ export default function HomePostItem({ slug, post }: Props) {
 					<time dateTime={post.created_at}>{dateFormatter(post.created_at)}</time>
 					<MoreLabel className="more">{"더보기 >"}</MoreLabel>
 				</LabelContainer>
-				{image && <GatsbyImage className="thumbnail" image={image} alt="post thumbnail" />}
+				{post.thumbnail && (
+					<GatsbyImage
+						className="thumbnail"
+						image={post.thumbnail.childImageSharp.gatsbyImageData}
+						alt="post thumbnail"
+					/>
+				)}
 			</Container>
 		</Link>
 	);

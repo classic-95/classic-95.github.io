@@ -6,4 +6,9 @@ export default function HomePage() {
 	return <HomeBody lang="en" />;
 }
 
-export const Head = () => <SEO title="Home" />;
+export const Head = () => (
+	<SEO
+		title="Home"
+		description="Tech blog for men and women of all ages that anyone can easily follow"
+	/>
+);

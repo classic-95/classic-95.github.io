@@ -43,7 +43,7 @@ type QueryType = {
 					childImageSharp: {
 						gatsbyImageData: IGatsbyImageData;
 					};
-				};
+				} | null;
 				title: string;
 			};
 		}[];

@@ -88,12 +88,12 @@ const MdxContainer = styled.div`
 			font-size: 1.25em;
 		}
 
-		.anchor {
+		.anchor-header {
 			left: -15px;
 		}
 	}
 
-	.anchor {
+	.anchor-header {
 		svg {
 			width: 20px;
 			height: 20px;
@@ -113,7 +113,7 @@ const MdxContainer = styled.div`
 		color: ${palette.gray[5]};
 	}
 
-	a:not(.anchor) {
+	a:not(.anchor-header) {
 		color: ${palette.viloet[5]};
 
 		&:hover {
