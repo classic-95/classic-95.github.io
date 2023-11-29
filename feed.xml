@@ -1,4 +1,20 @@
-<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Classic95의 블로그]]></title><description><![CDATA[누구나 쉽게 따라할 수 있는, 남녀노소 모두를 위한 개발 블로그]]></description><link>https://classic-95.com?utm_source=blog-feed&amp;utm_medium=feed&amp;utm_campaign=feed</link><generator>GatsbyJS</generator><lastBuildDate>Mon, 27 Nov 2023 01:56:52 GMT</lastBuildDate><item><title><![CDATA[[자료구조] stack 구조에 대해 알아보자]]></title><description><![CDATA[여러 가지 예시와 실습 코드를 통해 stack 구조를 제대로 이해해보자.]]></description><link>https://classic-95.com/posts/2023/11/data-structure-stack/</link><guid isPermaLink="false">https://classic-95.com/posts/2023/11/data-structure-stack/</guid><pubDate>Mon, 27 Nov 2023 01:35:02 GMT</pubDate><content:encoded>오늘은 자료 구조 중 stack 구조에 대해 알아봐요. 오늘 포스팅의 목표는 여러분이 이 포스팅의 썸네일을 이해하는 거에요!
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Classic95의 블로그]]></title><description><![CDATA[누구나 쉽게 따라할 수 있는, 남녀노소 모두를 위한 개발 블로그]]></description><link>https://classic-95.com?utm_source=blog-feed&amp;utm_medium=feed&amp;utm_campaign=feed</link><generator>GatsbyJS</generator><lastBuildDate>Wed, 29 Nov 2023 22:56:11 GMT</lastBuildDate><item><title><![CDATA[[Data Structure] Let's learn about stack structure]]></title><description><![CDATA[Let's properly understand the stack structure through examples and practice codes.]]></description><link>https://classic-95.com/en/posts/2023/11/data-structure-stack/</link><guid isPermaLink="false">https://classic-95.com/en/posts/2023/11/data-structure-stack/</guid><pubDate>Wed, 29 Nov 2023 22:55:00 GMT</pubDate><content:encoded>Today, let&apos;s learn about the stack structure among data structures. The goal of today&apos;s post is for you to understand the thumbnail of this post!
+
+1. What is stack structure?
+
+Actually, it&apos;s not that difficult. Because the stack structure is a structure that we encounter too much in our daily lives.
+
+Think of it as a storage for clothes. Let&apos;s say you&apos;ve stacked your clothes one by one and put them in the storage box, and you need to take out the clothes at the bottom.
+
+Can I take out the clothes that I need to take out without touching other clothes on top of the clothes that I need to take out?
+
+That&apos;s right. It&apos;s impossible, right? The bottom clothes can only be taken out after all the top clothes are taken out.
+
+This is the stack structure. It&apos;s easy, right?
+
+This is what we call the Last In First Out (LIFO) structure. The last one that went in comes out for the first time. If you understand so far, the theory is over.
+
+It&apos;s convenient to think that the stack structure is to put the…</content:encoded></item><item><title><![CDATA[[자료구조] stack 구조에 대해 알아보자]]></title><description><![CDATA[여러 가지 예시와 실습 코드를 통해 stack 구조를 제대로 이해해보자.]]></description><link>https://classic-95.com/posts/2023/11/data-structure-stack/</link><guid isPermaLink="false">https://classic-95.com/posts/2023/11/data-structure-stack/</guid><pubDate>Mon, 27 Nov 2023 01:35:02 GMT</pubDate><content:encoded>오늘은 자료 구조 중 stack 구조에 대해 알아봐요. 오늘 포스팅의 목표는 여러분이 이 포스팅의 썸네일을 이해하는 거에요!
 
 1. stack 구조란?
 
@@ -86,7 +102,7 @@ As shown in the image below, uncheck When Simulator starts boot the most recentl
 
 References
 stack overflow
-Organizing
+End
 
 Today, we learned how to resolve the unable to boot device in current state: Booted error that often occurs when running the iOS simulator in react-native.
 
