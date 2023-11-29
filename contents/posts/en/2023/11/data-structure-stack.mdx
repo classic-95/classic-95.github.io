@@ -1,0 +1,230 @@
+---
+author: "Classic95"
+title: "[Data Structures] Let's learn about stack structure"
+thumbnail: "../../../../images/logos/stack.png"
+created_at: 2023-11-30T07:55:00+09:00
+is_private: false
+transition: /posts/2023/11/data-structure-stack
+description: "Let's properly understand the stack structure through examples and practice codes."
+---
+
+Today, let's learn about the stack structure among data structures.
+
+The goal of today's post is for you to understand the thumbnail of this post!
+
+---
+
+## 1. What is stack structure?
+
+Actually, it's not that difficult. Because the stack structure is a structure that we encounter too much in our daily lives.
+
+Think of it as a storage for clothes. Let's say you've stacked your clothes one by one and put them in the storage box, and you need to take out the clothes at the bottom.
+
+Can I take out the clothes that I need to take out without touching other clothes on top of the clothes that I need to take out?
+
+That's right. It's impossible, right? The bottom clothes can only be taken out after all the top clothes are taken out.
+
+This is the stack structure. It's easy, right?
+
+This is what we call the `Last In First Out (LIFO)` structure. The last one that went in comes out for the first time. If you understand so far, the theory is over.
+
+It's convenient to think that the stack structure is to put the things we want in a basket with only one entrance and take them out sequentially from the top.
+
+## 2. Implementation of stack
+
+In most languages, stack, queue, etc. are already provided in an optimized state, so let's implement them in C language.
+
+In fact, if you can properly understand and implement the data structure itself, there is no big problem with language. (No problem means performance, not language-agnostic skills.)
+
+Now that we've understood the stack structure above, let's implement it.
+
+### 2-1. Required Variables
+
+I understand the theory, but then how should I implement it?
+
+We need to define the variables we need first.
+
+I made a stack in the form of a structure.
+
+#### `top`
+
+It's a variable that means how big the current stack is.
+
+With the initial value set to -1, each time the array is filled with value, +1 will act as an index to indicate the last item in the array.
+
+#### `array`
+
+It's a space to build a stack. To borrow the above explanation, it's a storage box for clothes.
+
+```c
+#define ARRAY_SIZE 6
+
+typedef struct STACK {
+    int top;
+    char array[ARRAY_SIZE];
+} Stack;
+```
+
+### 2-2. Required functions
+
+What should I do with codes that I always use repeatedly? You have to function it!
+
+If you make it a function, if you fix one part when a change occurs, it will be applied to all code parts that use the function, making maintenance easier and fewer mistakes, so make sure to! Please practice functioning.
+
+#### `int isEmpty(Stack stack)`
+
+It is a function that checks whether the stack is empty or not.
+
+You said you'd set the initial value of the top variable to -1, so I just need to check if it's -1, right?
+
+(There is no boolean value in the c language, so if true, 1 if false, it returns to zero.)
+
+#### `int size(Stack stack)`
+
+It is a function that checks how many items are in the stack.
+
+The top variable is said to act as an index indicating the last item, so if you do +1, you can easily know the number of items.
+
+#### `char getTop(Stack stack)`
+
+A function that returns the last item in the stack.
+
+#### `void push(Stack *stack, char item)`
+
+It's a function that puts items in the stack.
+
+Fill the array one by one, increasing the top index one by one.
+
+(The function in c language operates in the call by value method by default, so you need to use a pointer to modify the variables inside the stack.)
+
+#### `char pop(Stack *stack)`
+
+It is a function that subtracts the last item from the stack.
+
+Reduce the top index and take it out of the array from time to time.
+
+```c
+#define STACK_FULL_MSG "stack is already full\n"
+#define STACK_PUSH_MSG "push %c into stack\n"
+#define STACK_EMPTY_MSG "stack is empty now\n"
+
+int isEmpty(Stack stack)
+{
+    return stack.top == -1;
+}
+
+int size(Stack stack)
+{
+    return stack.top + 1;
+}
+
+char getTop(Stack stack)
+{
+    if (isEmpty(stack))
+    {
+        printf(STACK_EMPTY_MSG);
+        return '#';
+    }
+    return stack.array[stack.top];
+}
+
+void push(Stack *stack, char item)
+{
+    if (size(*stack) == ARRAY_SIZE - 1)
+    {
+        printf(STACK_FULL_MSG);
+        return;
+    }
+    stack->array[++stack->top] = item;
+    printf(STACK_PUSH_MSG, item);
+}
+
+char pop(Stack *stack)
+{
+    if (isEmpty(*stack))
+    {
+        printf(STACK_EMPTY_MSG);
+        return '#';
+    }
+    char item = stack->array[stack->top];
+    stack->array[stack->top--] = '\0';
+    return item;
+}
+```
+
+### 2-3. Main function
+
+If you initialize the top and array variables of the stack variable to -1, respectively, push k, c, a, t, and s in order, and pop all of them at the end, what word will come out?
+
+import img from "../../../../images/2023/11/stack.webp";
+
+<center>
+    <img src={img} alt="stack example" height="800px" />
+</center>
+
+It's "stack".
+
+Do you understand the meaning of the thumbnail now? The k, c, a, t, and s items are pushed in order in the stack arrangement that is lying down.
+
+If you pop in order, it's a stack just like today's coding result.
+
+```c
+int main()
+{
+    Stack stack =
+        {
+            -1,
+            {"\0"}};
+
+    push(&stack, 'k');
+    push(&stack, 'c');
+    push(&stack, 'a');
+    push(&stack, 't');
+    push(&stack, 's');
+
+    while (!isEmpty(stack))
+    {
+        printf("%c", pop(&stack));
+    }
+
+    return 0;
+}
+```
+
+## 3. Real-world use case of stack\
+
+So when are you going to use it? You're welcome if you think it won't be very useful!
+
+It's a data structure that's used more around us than we thought.
+
+### 3-1. Web browser back functionality
+
+The back button, which is commonly supported by many browsers such as Chrome, Naver Whale, Edge, and Safari, also uses stack.
+
+The pages you're looking at are also stacked with stacks.
+
+### 3-2. ctrl+z, cmd+z
+
+Ctrl+z for Windows and cmd+z for Mac. Shortcuts for working on documents or coding and turning back!
+
+This is also a form of pop after you push your movements in a stack format.
+
+Isn't it amazing?
+
+---
+
+## Whole code
+
+[https://github.com/classic-95/data-structures/tree/main/stack](https://github.com/classic-95/data-structures/tree/main/stack)
+
+---
+
+## End
+
+Today, we learned about understanding and implementing stack structure and real-world use cases.
+
+It's not as hard as you think, right? Once you understand everything, I recommend you to make a habit of implementing it.
+
+The more you use your head while implementing it, the deeper the structure will be in your head and it will be an opportunity to use it elsewhere.
+
+Thank you for following me while reading the post!
